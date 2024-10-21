@@ -40,10 +40,6 @@ header a h6{
   margin-left: 0.5%;
 
 }
-body {
-  
-}
-
 
 footer {
   background-color: #a8d5df;
@@ -80,7 +76,6 @@ footer div a p{
   row-gap: 1;
 }
 
-
 a {
   text-decoration: none !important; 
   color: inherit !important; 
@@ -88,4 +83,20 @@ a {
 
 a:hover {
   color: rgb(53, 53, 53) !important;
+}
+
+main{
+  margin: 1%;
+}
+main div{
+  border-radius: 18px;
+  margin-left: 5%;
+  width: 90%;
+  color: white;
+  background-color: rgb(94, 89, 89);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+main div h1{
+  text-align: center;
+  
 }
