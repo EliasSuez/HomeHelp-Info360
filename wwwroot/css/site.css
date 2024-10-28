@@ -7,6 +7,12 @@
   margin: 0;
   border: 1px solid black;
 }
+
+main{
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
 header{
   background-color: #a8d5df;
   width: 100%;
@@ -42,9 +48,11 @@ header a h6{
 }
 
 footer {
+  margin-top: 1%;
   background-color: #a8d5df;
   width: 100%;
   height: 13em;
+  clear: left;
 }
 
 footer .HomeHelp{
@@ -85,18 +93,28 @@ a:hover {
   color: rgb(53, 53, 53) !important;
 }
 
-main{
-  margin: 1%;
-}
-main div{
-  border-radius: 18px;
-  margin-left: 5%;
-  width: 90%;
+main .SobreNosotros {
   color: white;
-  background-color: rgb(94, 89, 89);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: rgb(70, 80, 81) ;
+  width: 40%;
+  float: left;
+  height: 596px;
 }
-main div h1{
-  text-align: center;
+
+main .SobreNosotros p{
+  font-size: 1.2rem;
+  width: 80%;
+  margin-left: 12%;
   
+}
+
+main .SobreNosotros h1{
+  text-align: center;
+  margin: 20px;
+}
+
+main .ImagenNostros{
+  float: left;
+  width: 39%;
+  height: auto;
 }
