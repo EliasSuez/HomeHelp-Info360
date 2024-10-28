@@ -1,6 +1,28 @@
 ﻿<main>
-    <div class="Home">
-        <h1>"Tu alíado en momentos dificiles"</h1>    
+      <div id="welcomeModal" class="modal-overlay">
+        <div class="modal-content">
+            <h1>HomeHelp</h1>
+            <h2>En busca que de estas</h2>
+            <button onclick="visitAs('trabajador')" class="btn btn-primary">Brindar una solucion</button>
+            <button onclick="visitAs('empleador')" class="btn btn-secondary">Buscar ayuda de un profesional</button>
+        </div>
     </div>
-    <img src="~/img/ImagenesIndex.png" class="ImagenNostros"/>
+    
+    <div class="Home">
+        <h1>"Tu alíado en momentos dificiles"</h1>
+        <img src="~/img/ImagenesIndex.png" class="ImagenNostros"/>
+        <div class="cta-container">
+            <button id="cta-button" onclick="handleButtonClick()">Elige lo que deseas</button>
+        </div>
+    </div>
+
+
+    <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Buscar servicios o profesionales...">
+    <button onclick="performSearch()">Buscar</button>
+</div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/scripts/welcomeModal.js"></script>
 </main>
