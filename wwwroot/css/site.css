@@ -93,28 +93,6 @@ a:hover {
   color: rgb(53, 53, 53) !important;
 }
 
-main .SobreNosotros {
-  color: white;
-  background-color: rgb(70, 80, 81) ;
-  width: 40%;
-  float: left;
-  height: 596px;
-}
-
-main .SobreNosotros p{
-  font-size: 1.2rem;
-  width: 80%;
-  margin-left: 12%;
-  
-}
-
-main .SobreNosotros h1{
+main .Home{
   text-align: center;
-  margin: 20px;
-}
-
-main .ImagenNostros{
-  float: left;
-  width: 39%;
-  height: auto;
 }
