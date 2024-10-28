@@ -201,8 +201,8 @@ main .Home{
 }
 
 #searchInput {
-  width: 650px;
-  padding: 7px;
+  width: 500px;
+  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
