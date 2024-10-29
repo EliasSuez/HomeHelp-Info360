@@ -1,26 +1,45 @@
 ﻿<main>
-      <div id="welcomeModal" class="modal-overlay">
-    <div class="modal-content">
-        <h1>HomeHelp</h1>
-        <h2>En busca que de estas</h2>
-        <button onclick="visitAs('trabajador')" class="btn btn-primary">Brindar una solución</button>
-        <button onclick="visitAs('empleador')" class="btn btn-secondary">Buscar ayuda de un profesional</button>
-    </div>
-</div>
-    
-    <div class="Home">
-        <h1>"Tu alíado en momentos dificiles"</h1>
-        <img src="~/img/ImagenesIndex.png" class="ImagenNostros"/>
-        <div class="cta-container">
-            <button id="cta-button" onclick="handleButtonClick()">Elige lo que deseas</button>
+    <div id="welcomeModal" class="modal-overlay">
+        <div class="modal-content">
+            <h1>HomeHelp</h1>
+            <h2>En busca que de estas</h2>
+            <button onclick="visitAs('trabajador')" class="btn btn-primary">Brindar una solución</button>
+            <button onclick="visitAs('empleador')" class="btn btn-secondary">Buscar ayuda de un profesional</button>
         </div>
     </div>
 
+    <div class="contenedor">
+        <img src="~/img/fotoFondo.png" class="ImagenNostros" />
+        <div class="fondoBlanco"></div>
+        <div class="textoSobreImagen">
+            <h1 class="tituloHome">HomeHelp</h1>
+            <h5 class="subtituloHome">"Tu aliado en momentos difíciles"</h5>
+        </div>
+    </div>
 
-    <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Buscar servicios o profesionales...">
-    <button onclick="performSearch()">Buscar</button>
+    <div class="contenedorPrincipal">
+    <div class="columnaIzquierda">
+        <div class="tarjeta tarjetaAyuda">
+            <h2>No dude en pedir <span class="ayuda">ayuda</span></h2>
+            <img src="~/img/emergenciaSimbolo.png" alt="Alarma" class="Emergencia">
+            <p>En caso de tener una emergencia llame al <a href="tel:48638888">4863-8888</a></p>
+        </div>
+
+        <div class="tarjeta tarjetaContacto">
+            <h2><span class="contacto">Contacto</span> directo entre usuarios</h2>
+            <img src="~/img/personasConversando.png" alt="Contacto" class="icono">
+        </div>
+    </div>
+
+    <div class="tarjeta tarjetaServicios">
+        <h2><span class="servicios">Servicios</span> disponibles</h2>
+        <ul>
+            <li><span class="check">✔</span> Electricista</li>
+            <!-- Añade más servicios aquí si es necesario -->
+        </ul>
+    </div>
 </div>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

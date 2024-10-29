@@ -99,7 +99,142 @@ main .Home{
   
 }
 
+main .contenedor {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  border-radius: 25px;
+  overflow: hidden;
+}
 
+main .ImagenNostros {
+  width: 100%;
+  border-radius: 25px;
+}
+
+main .textoSobreImagen {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  text-align: center;
+  
+}
+
+main .tituloHome {
+  font-size: 9.5rem;
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+main .subtituloHome {
+  font-size: 2rem;
+  margin-top: 5px;
+  font-family: "poppins";
+}
+
+main .fondoBlanco{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(163, 158, 158, 0.7); 
+    border-radius: 25px;
+}
+
+.contenedorPrincipal {
+  margin-left: 4%;
+  width: 92%;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.columnaIzquierda {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 59%; 
+}
+
+.tarjeta {
+  padding: 20px;
+  border-radius: 15px;
+  color: #333;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tarjetaAyuda {
+  background-color: #ef4e039a; 
+}
+
+.tarjetaContacto {
+  background-color: #46505152; 
+}
+
+.tarjetaServicios {
+  background-color: #a8d5dfa8; 
+  
+  width: 40%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 30px;
+  border-radius: 15px;
+}
+
+h2 {
+
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.ayuda {
+  color: #FF0004; 
+  font-weight: bold;
+}
+
+.contacto {
+  color: #FCD812; 
+  font-weight: bold;
+}
+
+.servicios {
+  color: #00CEFF; 
+  font-weight: bold;
+}
+
+
+
+.tarjetaServicios ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tarjetaServicios li {
+  font-size: 1.2em;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.check {
+  color: #00b4d8; 
+  margin-right: 10px;
+}
+main .contenedorPrincipal img{
+  width: 40%;
+}
+
+main .contenedorPrincipal .Emergencia{
+  width: 20%;
+}
+/* Overlay */
 .modal-overlay {
   display: none; 
   position: fixed;
@@ -162,64 +297,4 @@ main .Home{
 
 .btn-secondary:hover {
   background-color: #5a6268;
-}
-
-.cta-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-#cta-button {
-  background-color: #ffa500; 
-  color: white;
-  font-size: 18px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s;
-}
-
-#cta-button:hover {
-  background-color: #ff8c00; 
-  transform: scale(1.05); 
-}
-
-#cta-button:active {
-  background-color: #ff7b00; 
-  transform: scale(0.95); 
-}
-
-
-/* Estilos para el buscador */
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-}
-
-#searchInput {
-  width: 500px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-  font-size: 16px;
-}
-
-.search-container button {
-  padding: 8px 16px;
-  margin-left: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.search-container button:hover {
-  background-color: #0056b3;
 }
