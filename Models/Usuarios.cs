@@ -8,5 +8,6 @@ public class Usuarios
     public int Calificacion {get; set;} 
     public bool Trabajador {get; set;} 
     public string Descripcion {get; set;} 
-    public int ID_Visitante {get; set;} 
+    public int ID_Visitante {get; set;}  
+    public int Numberuser {get; set;}
 }
