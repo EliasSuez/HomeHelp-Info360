@@ -101,6 +101,7 @@ main .Home{
 
 main .contenedor {
   position: relative;
+  height: 430px;
   width: 90%;
   margin: auto;
   border-radius: 25px;
@@ -114,7 +115,7 @@ main .ImagenNostros {
 
 main .textoSobreImagen {
   position: absolute;
-  top: 45%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #000;
@@ -161,7 +162,6 @@ main .fondoBlanco{
 
 .tarjeta {
   padding: 20px;
-  border-radius: 15px;
   color: #333;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -207,7 +207,6 @@ h2 {
   color: #00CEFF; 
   font-weight: bold;
 }
-
 
 
 .tarjetaServicios ul {
@@ -269,15 +268,7 @@ main .contenedorPrincipal .Emergencia{
   gap: 15px;
 }
 
-.button-container button {
-  width: 100%;
-  padding: 12px;
-  font-size: 1em;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+
 
 /* Estilo para el botón de trabajador */
 .btn-primary {
