@@ -463,8 +463,6 @@ main .contenedorPrincipal .Emergencia{
 }
 
 
-
-
 /* Log in */
 
 .containerLogIn {
@@ -477,6 +475,7 @@ main .contenedorPrincipal .Emergencia{
   box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
   margin: 20px;
   margin: auto;
+  
 }
 
 .heading {
@@ -620,6 +619,8 @@ main .contenedorPrincipal .Emergencia{
   border-radius: 20px;
   position: relative;
   margin: auto;
+  margin-bottom: 2%;
+  margin-top: 2%;
 }
 
 .title {

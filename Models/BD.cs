@@ -52,10 +52,10 @@ DataBase=HOMEHELP;Trusted_Connection=True;";
 
      public static void AgregarUsuario(Usuarios user)
     {
-        string SQL = " IF NOT EXIST (SELECT DNI FROM Usuarios WHERE DNI = @pDNI) BEGIN {INSERT INTO Usuarios( DNI, Nombre,Apellido, Direccion, Edad, Calificacion, Trabajador, Descripcion, ID_Visitante) VALUES (@pDNI, @pNombre,@pApellido, @pDireccion, @pEdad, @pCalificacion, @pTrabajador, @pDescripcion, @pID_Visitante)} END";
+        string SQL = " IF NOT EXIST (SELECT DNI FROM Usuarios WHERE DNI = @pDNI) BEGIN {INSERT INTO Usuarios( DNI, Nombre, Apellido, Direccion, Edad, Calificacion, Trabajador, Descripcion, ID_Visitante) VALUES (@pDNI, @pNombre,@pApellido, @pDireccion, @pEdad, @pCalificacion, @pTrabajador, @pEmail, @pPassword )} END";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {    
-            db.Execute(SQL, new {pDNI = user.DNI, pNombre = user.Nombre ,pApellido = user.Apellido, pDireccion = user.Direccion, pEdad = user.Edad, pCalificacion = user.Calificacion, pTrabajador = user.Trabajador, pDescripcion = user.Descripcion, pID_Visitante = user.ID_Visitante });
+            db.Execute(SQL, new {pDNI = user.DNI, pNombre = user.Nombre ,pApellido = user.Apellido, pDireccion = user.Direccion, pEdad = user.Edad, pCalificacion = user.Calificacion, pTrabajador = user.Trabajador, pEmail = user.Email, pPassword = user.Password});
         } 
         
     } 
@@ -69,5 +69,15 @@ DataBase=HOMEHELP;Trusted_Connection=True;";
         } 
         
     } 
+
+
+    public static int ObtenerUltimoNumeroUsuario()
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT ISNULL(MAX(Numberuser), 0) FROM Usuarios";
+            return db.ExecuteScalar<int>(sql);
+        }
+    }
 
 }

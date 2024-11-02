@@ -36,6 +36,28 @@ function performSearch() {
     }
 }
 
+document.querySelector(".form").addEventListener("submit", function(event) {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    let errors = [];
+
+    if (!email) {
+        errors.push("El campo de email es obligatorio.");
+    }
+    if (!password) {
+        errors.push("El campo de contraseña es obligatorio.");
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email && !emailPattern.test(email)) {
+        errors.push("Por favor ingresa un email válido.");
+    }
+
+    if (errors.length > 0) {
+        event.preventDefault(); 
+        alert(errors.join("\n")); 
+    }
+});
 
 
 

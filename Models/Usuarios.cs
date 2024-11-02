@@ -7,7 +7,7 @@ public class Usuarios
     public int Edad  {get; set;} 
     public int Calificacion {get; set;} 
     public bool Trabajador {get; set;} 
-    public string Descripcion {get; set;} 
-    public int ID_Visitante {get; set;}  
+    public string Email {get; set;}
+    public string Password {get; set;}
     public int Numberuser {get; set;}
 }
