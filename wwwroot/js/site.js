@@ -59,14 +59,14 @@ document.querySelector(".form").addEventListener("submit", function(event) {
     }
 });
 
-document.querySelector(".formRegister").addEventListener("submit", function(event) {
+document.querySelector(".formTrabajador").addEventListener("submit", function(event) {
     const Name = document.getElementById("Name").value
     const LastName = document.getElementById("Lastname").value
     const Email = document.getElementById("Email").value
     const DNI = document.getElementById("DNI").value
-    const Birthdate = document.getElementById("Birthdate").value
-    const Address = document.getElementById("Address").value
+    const Birthdate = document.getElementById("Birthdate").valu
     const Password = document.getElementById("Password").value
+    const ConfirmPassword = document.getElementById("ConfirmPassword").value
     const regexp_email = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
     const regexp_password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
     let errors = [];
@@ -77,23 +77,64 @@ document.querySelector(".formRegister").addEventListener("submit", function(even
     if(LastName != ""){
         errors.push("Por favor ingrese un apellido valido")        
     }
-    if(Email != ""){
+    if(!regexp_email.test(Email)){
         errors.push("Por favor ingrese un email valido")        
     }
     if(DNI != ""){
-        errors.push("Por favor ingrese un email valido")        
+        errors.push("Por favor ingrese un DNI valido")        
     }
     if(Birthdate < Date.now && Birthdate.year > 0){
         errors.push("Por favor ingrese un año de nacimiento valido")        
     }
-    if(!regexp_email.test(Address)){
+    if(!regexp_password.test(Password))
+    {
+        errors.push("Por favor ingrese un contraseña valido")
+    }
+    if(Password != ConfirmPassword)
+    {
+        errors.push("Las constraseñas no son iguales")
+    }
+    if(errors.length > 0)
+    {
+        e=>(alert(errors(e))) 
+    }
+});
+
+document.querySelector(".formCliente").addEventListener("submit", function(event) {
+    const Name = document.getElementById("Name").value
+    const LastName = document.getElementById("Lastname").value
+    const Email = document.getElementById("Email").value
+    const DNI = document.getElementById("DNI").value
+    const Birthdate = document.getElementById("Birthdate").valu
+    const Password = document.getElementById("Password").value
+    const ConfirmPassword = document.getElementById("ConfirmPassword").value
+    const regexp_email = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    const regexp_password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
+    let errors = [];
+
+    if(Name != ""){
+        errors.push("Por favor ingrese un nombre valido")        
+    }
+    if(LastName != ""){
+        errors.push("Por favor ingrese un apellido valido")        
+    }
+    if(!regexp_email.test(Email)){
         errors.push("Por favor ingrese un email valido")        
+    }
+    if(DNI != ""){
+        errors.push("Por favor ingrese un DNI valido")        
+    }
+    if(Birthdate < Date.now && Birthdate.year > 0){
+        errors.push("Por favor ingrese un año de nacimiento valido")        
     }
     if(!regexp_password.test(Password))
     {
-        errors.push("Por favor ingrese un email valido")
+        errors.push("Por favor ingrese un contraseña valido")
     }
-
+    if(Password != ConfirmPassword)
+    {
+        errors.push("Las constraseñas no son iguales")
+    }
     if(errors.length > 0)
     {
         e=>(alert(errors(e))) 
