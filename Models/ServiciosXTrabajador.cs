@@ -1,4 +1,4 @@
-class ServiciosXTrabajador 
+public class ServiciosXTrabajador 
 {
     public int ID_Serv_X_Tra {get; set;} 
     public int ID_Cliente {get; set;} 

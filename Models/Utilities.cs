@@ -13,11 +13,11 @@ public class Utilities
         DNI = dni,
         Nombre = nombre,
         Apellido = apellido,
-        Direccion = direccion,
+        
         Edad = edad,
         Email = email,
         Password = password,
-        Numberuser = nuevoNumeroUsuario
+       
     };
 
     BD.AgregarUsuario(usuario);
