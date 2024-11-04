@@ -15,5 +15,7 @@ public class Usuarios
 
     public int ID_Usuario {get; set;} 
 
-    public string Foto {get; set;}
+    public string Foto {get; set;} 
+
+    public string Descripcion {get; set;}
 }
