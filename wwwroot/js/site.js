@@ -59,5 +59,36 @@ document.querySelector(".form").addEventListener("submit", function(event) {
     }
 });
 
+document.querySelector(".formRegister").addEventListener("submit", function(event) {
+    const Name = document.getElementById("Name").value
+    const LastName = document.getElementById("Lastname").value
+    const Email = document.getElementById("Email").value
+    const DNI = document.getElementById("DNI").value
+    const Birthdate = document.getElementById("Birthdate").value
+    const Address = document.getElementById("Address").value
+    const Password = document.getElementById("Password").value
+    let errors = [];
+
+    if(Name != ""){
+        errors.push("Por favor ingrese un nombre valido")        
+    }
+    if(LastName != ""){
+        errors.push("Por favor ingrese un apellido valido")        
+    }
+    if(Email != ""){
+        errors.push("Por favor ingrese un email valido")        
+    }
+    if(DNI != ""){
+        errors.push("Por favor ingrese un email valido")        
+    }
+    if(Birthdate < Date.now && Birthdate.year > 0){
+        errors.push("Por favor ingrese un año de nacimiento valido")        
+    }
+    if(Address != ""){
+        errors.push("Por favor ingrese un email valido")        
+    }
+    
+});
+
 
 

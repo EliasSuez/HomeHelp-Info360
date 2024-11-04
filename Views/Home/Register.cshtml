@@ -1,37 +1,37 @@
-<form class="formRegister" action="/Home/CrearCuenta" method="post">
+<form class="formRegister" action="@Url.Action("AniadirUsuario")" method="post">
     <p class="title">Register</p>
     <p class="message">Signup now and get full access to our app.</p>
     <div class="flex">
         <label>
-            <input class="inputRegister" type="text" name="Nombre" required="">
+            <input class="inputRegister" type="text" name="Nombre" required="" id="Name">
             <span>Firstname</span>
         </label>
 
         <label>
-            <input class="inputRegister" type="text" name="Apellido" required="">
+            <input class="inputRegister" type="text" name="Apellido" required="" id="Lastname">
             <span>Lastname</span>
         </label>
     </div>  
     <div class="flex">
         <label>
-            <input class="inputRegister" type="email" name="Email" required="">
+            <input class="inputRegister" type="email" name="Email" required="" id="Email">
             <span>Email</span>
         </label>
         <label>
-            <input class="inputRegister" type="text" name="DNI" required="">
+            <input class="inputRegister" type="text" name="DNI" required="" id="DNI">
             <span>DNI</span>
         </label> 
     </div>
     <label>
-        <input class="inputRegister" type="date" name="FechaNacimiento" required="">
+        <input class="inputRegister" type="date" name="FechaNacimiento" required="" id="Birthdate">
         <span>Birthdate</span>
     </label>
     <label>
-        <input class="inputRegister" type="text" name="Direccion" required="">
+        <input class="inputRegister" type="text" name="Direccion" required="" id="Address">
         <span>Address</span>
     </label>
     <label>
-        <input class="inputRegister" type="password" name="Password" required="">
+        <input class="inputRegister" type="password" name="Password" required="" id="Password">
         <span>Password</span>
     </label>
     <button class="submit">Submit</button>
