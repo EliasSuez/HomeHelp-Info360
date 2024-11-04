@@ -29,9 +29,8 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult AniadirUsuario(int dni, string nombre, string apellido, string email, string password, string direccion, DateTime fecha)
+    public IActionResult AgregarCliente(int dni, string nombre, string apellido, string email, string password, string direccion, DateTime fecha)
     {
-
         Usuarios nuevoUsuario = Utilities.CrearUsuario(dni, nombre, apellido, email, password, direccion, fecha);
         return RedirectToAction("Index");
     }
@@ -40,5 +39,17 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Crearcuenta()
+    {
+        return View();
+    }
 
+    public IActionResult RegisterCliente()
+    {
+        return View();
+    }
+    public IActionResult RegisterTrabajador()
+    {
+        return View();
+    }
 }

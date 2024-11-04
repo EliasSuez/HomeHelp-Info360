@@ -609,7 +609,7 @@ main .contenedorPrincipal .Emergencia{
 /* Register */
 
 
-.formRegister {
+.formCliente, .formTrabajador {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -679,11 +679,11 @@ main .contenedorPrincipal .Emergencia{
   gap: 6px;
 }
 
-.formRegister label {
+.formTrabajador label, .formCliente label {
   position: relative;
 }
 
-.formRegister label .inputRegister {
+.formTrabajador label .inputRegister, .formCliente label .inputRegister {
   width: 100%;
   padding: 10px 10px 20px 10px;
   outline: 0;
@@ -691,7 +691,7 @@ main .contenedorPrincipal .Emergencia{
   border-radius: 10px;
 }
 
-.formRegister label .inputRegister+ span {
+.formTrabajador label .inputRegister+ span, .formCliente label .inputRegister+ span {
   position: absolute;
   left: 10px;
   top: 15px;
@@ -701,18 +701,18 @@ main .contenedorPrincipal .Emergencia{
   transition: 0.3s ease;
 }
 
-.formRegister label .inputRegister:placeholder-shown + span {
+.formTrabajador label .inputRegister:placeholder-shown + span .formCliente label .inputRegister:placeholder-shown + span{
   top: 15px;
   font-size: 0.9em;
 }
 
-.formRegister label .inputRegister:focus + span,.form label .inputRegister:valid + span {
+.formTrabajador label .inputRegister:focus + span,.form label .inputRegister:valid + span, .formCliente label .inputRegister:focus + span,.form label .inputRegister:valid + span  {
   top: 0px;
   font-size: 0.7em;
   font-weight: 600;
 }
 
-.formRegister label .input:valid + span {
+.formTrabajador label .input:valid + span, .formCliente label .input:valid + span {
   color: green;
 }
 
