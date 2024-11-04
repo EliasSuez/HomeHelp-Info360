@@ -6,7 +6,9 @@ public class BD
     private static List<Usuarios> _ListaUsuarios;
     private static List<Trabajadores> _ListaTrabajadores;
     private static List<Servicios> _ListaServicios;
-    private static List<Valoraciones> _ListaValoraciones;
+    private static List<Valoraciones> _ListaValoraciones;  
+    private static List<Clientes> _ListaClientes; 
+
     private static string _connectionString = @"Server=localhost;DataBase=HOMEHELP;Trusted_Connection=True;";
 
     public static List<Usuarios> ObtenerUsuarios()
@@ -47,6 +49,15 @@ public class BD
             _ListaValoraciones = db.Query<Valoraciones>(sql).ToList();
         }
         return _ListaValoraciones;
+    }  
+     public static List<Clientes> ObtenerClientes()
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Clientes";
+            _ListaClientes = db.Query<Clientes>(sql).ToList();
+        }
+        return _ListaClientes;
     }
 
     public static void AgregarCliente(Usuarios user)
@@ -64,11 +75,19 @@ public class BD
         string SQL = "IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_User = @pID_User) BEGIN { INSERT INTO Trabajadores (Matricula, ID_Especialidad, ID_User)VALUES (@pMatricula, @pEspecialidad, @pID_user) } ; END";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(SQL, new { pMatricula = tra.Matricula, pID_Especialidad = tra.ID_Especialidad, pID_User = tra.ID_User });
-        }
+            db.Execute(SQL, new {pMatricula = tra.Matricula ,pID_Especialidad = tra.ID_Especialidad, pID_User = tra.ID_User} );
+        } 
+    }  
 
-    }
-
+    public static void AgregarValoraciones(Clientes clie)
+    { 
+        
+        string SQL = " INSERT INTO Valoraciones (Puntuacion, Comentario, Desea_Recomendarlo, Calificacion)VALUES (@pPuntuacion, @pComentario, @pDesea_Recomendarlo, @pCalificacion) "; 
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(SQL, new {/* */} );
+        } 
+    } 
 
     public static int ObtenerUltimoNumeroUsuario()
     {
