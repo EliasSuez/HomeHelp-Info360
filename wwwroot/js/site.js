@@ -67,6 +67,8 @@ document.querySelector(".formRegister").addEventListener("submit", function(even
     const Birthdate = document.getElementById("Birthdate").value
     const Address = document.getElementById("Address").value
     const Password = document.getElementById("Password").value
+    const regexp_email = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    const regexp_password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
     let errors = [];
 
     if(Name != ""){
@@ -84,10 +86,18 @@ document.querySelector(".formRegister").addEventListener("submit", function(even
     if(Birthdate < Date.now && Birthdate.year > 0){
         errors.push("Por favor ingrese un año de nacimiento valido")        
     }
-    if(Address != ""){
+    if(!regexp_email.test(Address)){
         errors.push("Por favor ingrese un email valido")        
     }
-    
+    if(!regexp_password.test(Password))
+    {
+        errors.push("Por favor ingrese un email valido")
+    }
+
+    if(errors.length > 0)
+    {
+        e=>(alert(errors(e))) 
+    }
 });
 
 
