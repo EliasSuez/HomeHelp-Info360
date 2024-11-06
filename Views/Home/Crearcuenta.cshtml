@@ -10,22 +10,26 @@
     <div class="contenedorCuenta">
         <h1>Regístrate</h1>
         <div class="options">
-            <div class="option">
-                <a href="@Url.Action("RegisterCliente")">
-                    <img src="~/img/empleador.jpg" alt="Quiero contratar">
-                    <h3>Quiero contratar</h3>
-                    <hr>
-                </a>
-            </div>
-            <div class="option">
-                <a href="@Url.Action("RegisterTrabajador")">
-                    <img src="~/img/trabajador.jpg" alt="Quiero trabajar">
-                    <h3>Quiero trabajar</h3>
-                    <hr>
-                </a>
-            </div>
+            <form action='@Url.Action("AgregarUsuario")'>
+                <div class="option">
+                        <img src="~/img/empleador.jpg" alt="Quiero contratar">
+                        <h3>Quiero contratar</h3>
+                        <hr>
+                        <input type="hidden" name="Trabajador" value="false">
+                        <button type="submit"/>
+                </div>
+            </form>
+            <form action='@Url.Action("AgregarUsuario")'>
+                <div class="option">
+                        <img src="~/img/trabajador.jpg" alt="Quiero trabajar">
+                        <h3>Quiero trabajar</h3>
+                        <hr>
+                        <input type="hidden" name="Trabajador" value="true">
+                        <button type="submit"/>
+                </div>
+            </form>
         </div>
-        <p class="login-link">¿Ya tienes cuenta? <a href="@Url.Action("Login")">Iniciar sesión</a></p>
+        <p class="login-link">¿Ya tienes cuenta? <a href='@Url.Action("Login")'>Iniciar sesión</a></p>
     </div>
     
     <script src="~/scripts/welcomeModal.js"></script>

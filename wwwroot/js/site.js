@@ -39,6 +39,7 @@ function performSearch() {
 document.querySelector(".form").addEventListener("submit", function(event) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let errors = [];
 
     if (!email) {
@@ -48,7 +49,7 @@ document.querySelector(".form").addEventListener("submit", function(event) {
         errors.push("El campo de contraseña es obligatorio.");
     }
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
     if (email && !emailPattern.test(email)) {
         errors.push("Por favor ingresa un email válido.");
     }
@@ -59,7 +60,7 @@ document.querySelector(".form").addEventListener("submit", function(event) {
     }
 });
 
-document.querySelector(".formTrabajador").addEventListener("submit", function(event) {
+document.querySelector(".formTrabajador").addEventListener("input", function(event) {
     const Name = document.getElementById("Name").value
     const LastName = document.getElementById("Lastname").value
     const Email = document.getElementById("Email").value
@@ -80,7 +81,7 @@ document.querySelector(".formTrabajador").addEventListener("submit", function(ev
     if(!regexp_email.test(Email)){
         errors.push("Por favor ingrese un email valido")        
     }
-    if(DNI != ""){
+    if(DNI != "" && DNI.length == 8){
         errors.push("Por favor ingrese un DNI valido")        
     }
     if(Birthdate < Date.now && Birthdate.year > 0){
@@ -96,7 +97,8 @@ document.querySelector(".formTrabajador").addEventListener("submit", function(ev
     }
     if(errors.length > 0)
     {
-        e=>(alert(errors(e))) 
+        event.preventDefault(); 
+        alert(errors.join("\n")); 
     }
 });
 
@@ -121,7 +123,7 @@ document.querySelector(".formCliente").addEventListener("submit", function(event
     if(!regexp_email.test(Email)){
         errors.push("Por favor ingrese un email valido")        
     }
-    if(DNI != ""){
+    if(DNI != "" && DNI.length == 8){
         errors.push("Por favor ingrese un DNI valido")        
     }
     if(Birthdate < Date.now && Birthdate.year > 0){
@@ -137,7 +139,8 @@ document.querySelector(".formCliente").addEventListener("submit", function(event
     }
     if(errors.length > 0)
     {
-        e=>(alert(errors(e))) 
+        event.preventDefault(); 
+        alert(errors.join("\n")); 
     }
 });
 

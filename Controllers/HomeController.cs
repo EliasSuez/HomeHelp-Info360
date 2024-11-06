@@ -29,11 +29,19 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult AgregarUsuario(int dni, string nombre, string apellido, string email, string password, DateTime fecha)
+    public IActionResult AgregarUsuario(int dni, string nombre, string apellido, string email, string password, DateTime fecha, bool Trabajador, string ? matricula, string ? Direccion)
     {
-        Usuarios nuevoUsuario = Utilities.CrearUsuario(dni, nombre, apellido, email, password, fecha);
+        Usuarios nuevoUsuario = Utilities.CrearUsuario(dni, nombre, apellido, email, password, fecha, Trabajador);
+        if(!nuevoUsuario.Trabajador)
+        {
+            Utilities.CrearTrabajador(matricula);
+        }
+        else{
+            Utilities.CrearCliente(Direccion);
+        }
         return RedirectToAction("Index");
     }
+
 
     [Route("/Home/SingUp")]
     public IActionResult SignUp()

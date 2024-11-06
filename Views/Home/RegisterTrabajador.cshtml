@@ -1,4 +1,4 @@
-<form class="formTrabajador" action="@Url.Action("AniadirUsuario")" method="post">
+<form class="formTrabajador" action='@Url.Action("AgregarUsuario")' method="post">
     <p class="title">Register</p>
     <p class="message">Signup now and get full access to our app.</p>
     <div class="flex">
@@ -38,6 +38,6 @@
         <input class="inputRegister" type="text" name="Matricula" required="" id="Matricula" autocomplete="">
         <span>Ingrese el src de la matricula</span>
     </label>
-    <button class="submit">Submit</button>
+    <button class="submit" id="botonEnviar">Submit</button>
     <p class="signin">Already have an account? <a href="@Url.Action("Login")"> <b>Sign in </b></a></p>
 </form>
