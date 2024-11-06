@@ -60,12 +60,12 @@ public class BD
         return _ListaClientes;
     }
 
-    public static void AgregarCliente(Usuarios user)
+    public static void AgregarUsuario(Usuarios user)
     {
-        string SQL = " IF NOT EXIST (SELECT ID_Usuario FROM Usuarios WHERE ID_Usuario = @pID_Usuario) BEGIN {INSERT INTO Usuarios( DNI, Nombre, Apellido, Edad, ID_Valoracion, Trabajador, Email, Password, Foto, Descripcion) VALUES (@pDNI, @pNombre,@pApellido, @pEdad, @pID_Valoracion, @pTrabajador, @pEmail, @pPassword, @pFoto, @pDescripcion )} END";
+        string SQL = " IF NOT EXIST (SELECT ID_Usuario FROM Usuarios WHERE ID_Usuario = @pID_Usuario) BEGIN {INSERT INTO Usuarios( DNI, Nombre, Apellido, Edad, ID_Valoracion, Trabajador, Email, Password, Foto) VALUES (@pDNI, @pNombre,@pApellido, @pEdad, @pID_Valoracion, @pTrabajador, @pEmail, @pPassword, @pFoto)} END";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(SQL, new { pDNI = user.DNI, pNombre = user.Nombre, pApellido = user.Apellido, pEdad = user.Edad, pID_Valoracion = user.ID_Valoracion, pTrabajador = user.Trabajador, pEmail = user.Email, pPassword = user.Password, pFoto = user.Foto, pDescripcion = user.Descripcion });
+            db.Execute(SQL, new { pDNI = user.DNI, pNombre = user.Nombre, pApellido = user.Apellido, pEdad = user.Edad, pID_Valoracion = user.ID_Valoracion, pTrabajador = user.Trabajador, pEmail = user.Email, pPassword = user.Password, pFoto = user.Foto});
         }
 
     }
@@ -78,14 +78,22 @@ public class BD
             db.Execute(SQL, new {pMatricula = tra.Matricula ,pID_Especialidad = tra.ID_Especialidad, pID_User = tra.ID_User} );
         } 
     }  
+    public static void AgregarCliente(Clientes clie)
+    {
+        string SQL = " IF NOT EXIST (SELECT 1 FROM Usuarios WHERE ID_User = @pID_User) BEGIN {INSERT INTO Clientes(Direccion, ID_User) VALUES (@pDireccion, @pID_User)} END";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(SQL, new {pDireccion = clie.Direccion, pID_User = clie.ID_User });
+        }
 
-    public static void AgregarValoraciones(Clientes clie)
+    }
+
+    public static void AgregarValoraciones(Valoraciones valo)
     { 
-        
         string SQL = " INSERT INTO Valoraciones (Puntuacion, Comentario, Desea_Recomendarlo, Calificacion)VALUES (@pPuntuacion, @pComentario, @pDesea_Recomendarlo, @pCalificacion) "; 
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(SQL, new {/* */} );
+            db.Execute(SQL, new {pPuntuacion = valo.Puntuacion, pComentario = valo.Comentario, pDesea_Recomendarlo = valo.Desea_Recomendarlo, pCalificacion = valo.Calificacion} );
         } 
     } 
 

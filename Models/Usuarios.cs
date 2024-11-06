@@ -17,5 +17,5 @@ public class Usuarios
 
     public string Foto {get; set;} 
 
-    public string Descripcion {get; set;}
+    
 }

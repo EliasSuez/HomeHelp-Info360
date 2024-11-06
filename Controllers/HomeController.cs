@@ -29,9 +29,9 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult AgregarCliente(int dni, string nombre, string apellido, string email, string password, string direccion, DateTime fecha)
+    public IActionResult AgregarUsuario(int dni, string nombre, string apellido, string email, string password, DateTime fecha)
     {
-        Usuarios nuevoUsuario = Utilities.CrearUsuario(dni, nombre, apellido, email, password, direccion, fecha);
+        Usuarios nuevoUsuario = Utilities.CrearUsuario(dni, nombre, apellido, email, password, fecha);
         return RedirectToAction("Index");
     }
     public IActionResult Register()
