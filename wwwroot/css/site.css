@@ -830,6 +830,51 @@ h1.display-4 {
     opacity: 1;
     transform: translateY(0);
   }
+} 
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+.contenedor-tips {
+  display: flex;
+  gap: 20px;
+}
+.tip {
+  width: 250px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+  text-align: center;
+}
+.tip img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.tip1 {
+  background-color: #ffb7a8;
+}
+.tip2 {
+  background-color: #b4e2ef;
+}
+.tip3 {
+  background-color: #d9d9d9;
+}
+.tip1 h2, .tip2 h2, .tip3 h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.tip1 p, .tip2 p, .tip3 p {
+  font-size: 0.9em;
+  line-height: 1.6;
 }
 
  
