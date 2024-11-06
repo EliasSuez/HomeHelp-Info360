@@ -2,7 +2,7 @@ using System.Data;
 
 public class Utilities
 {
-    public static Usuarios CrearUsuario(int dni, string nombre, string apellido, string email, string password, string direccion, DateTime fecha)
+    public static Usuarios CrearUsuario(int dni, string nombre, string apellido, string email, string password,  DateTime fecha)
 {
     int edad = CalcularEdad(fecha);
 
@@ -16,7 +16,7 @@ public class Utilities
         Password = password,
     };
 
-    BD.AgregarCliente(usuario);
+    BD.AgregarUsuario(usuario);
     return usuario;
 }
 
