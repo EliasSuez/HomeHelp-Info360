@@ -43,16 +43,16 @@ public class HomeController : Controller
     }
 
 
-    [Route("/Home/SingUp")]
-    public IActionResult SignUp()
-    {
-        Response.Cookies.Delete("UserId");
-        Response.Cookies.Append("UserId", "123456");
-        string user = Request.Cookies["UserId"];
+    // [Route("/Home/SingUp")]
+    // public IActionResult SignUp()
+    // {
+    //     Response.Cookies.Delete("UserId");
+    //     Response.Cookies.Append("UserId", "123456");
+    //     string user = Request.Cookies["UserId"];
 
-        Console.WriteLine(user ?? " No hay usuariodefinido");
-        return View();
-    }
+    //     Console.WriteLine(user ?? " No hay usuariodefinido");
+    //     return View();
+    // }
 
     public IActionResult Register()
     {
@@ -69,6 +69,11 @@ public class HomeController : Controller
         return View();
     }
     public IActionResult RegisterTrabajador()
+    {
+        return View();
+    }
+
+    public IActionResult Tips()
     {
         return View();
     }

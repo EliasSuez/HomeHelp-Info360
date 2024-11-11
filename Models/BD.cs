@@ -6,10 +6,10 @@ public class BD
     private static List<Usuarios> _ListaUsuarios;
     private static List<Trabajadores> _ListaTrabajadores;
     private static List<Servicios> _ListaServicios;
-    private static List<Valoraciones> _ListaValoraciones;  
-    private static List<Clientes> _ListaClientes; 
+    private static List<Valoraciones> _ListaValoraciones;
+    private static List<Clientes> _ListaClientes;
 
-    private static string _connectionString = @"Server=localhost;DataBase=HOMEHELP;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=localhost; DataBase=HOMEHELP;Trusted_Connection=True; ";
 
     public static List<Usuarios> ObtenerUsuarios()
     {
@@ -49,8 +49,8 @@ public class BD
             _ListaValoraciones = db.Query<Valoraciones>(sql).ToList();
         }
         return _ListaValoraciones;
-    }  
-     public static List<Clientes> ObtenerClientes()
+    }
+    public static List<Clientes> ObtenerClientes()
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
@@ -65,7 +65,7 @@ public class BD
         string SQL = " IF NOT EXIST (SELECT ID_Usuario FROM Usuarios WHERE ID_Usuario = @pID_Usuario) BEGIN {INSERT INTO Usuarios( DNI, Nombre, Apellido, Edad, ID_Valoracion, Trabajador, Email, Password, Foto) VALUES (@pDNI, @pNombre,@pApellido, @pEdad, @pID_Valoracion, @pTrabajador, @pEmail, @pPassword, @pFoto)} END";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(SQL, new { pDNI = user.DNI, pNombre = user.Nombre, pApellido = user.Apellido, pEdad = user.Edad, pID_Valoracion = user.ID_Valoracion, pTrabajador = user.Trabajador, pEmail = user.Email, pPassword = user.Password, pFoto = user.Foto});
+            db.Execute(SQL, new { pDNI = user.DNI, pNombre = user.Nombre, pApellido = user.Apellido, pEdad = user.Edad, pID_Valoracion = user.ID_Valoracion, pTrabajador = user.Trabajador, pEmail = user.Email, pPassword = user.Password, pFoto = user.Foto });
         }
 
     }
@@ -75,27 +75,27 @@ public class BD
         string SQL = "IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_User = @pID_User) BEGIN { INSERT INTO Trabajadores (Matricula, ID_Especialidad, ID_User)VALUES (@pMatricula, @pEspecialidad, @pID_user) } ; END";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(SQL, new {pMatricula = tra.Matricula ,pID_Especialidad = tra.ID_Especialidad, pID_User = tra.ID_User} );
-        } 
-    }  
+            db.Execute(SQL, new { pMatricula = tra.Matricula, pID_Especialidad = tra.ID_Especialidad, pID_User = tra.ID_User });
+        }
+    }
     public static void AgregarCliente(Clientes clie)
     {
         string SQL = " IF NOT EXIST (SELECT 1 FROM Usuarios WHERE ID_User = @pID_User) BEGIN {INSERT INTO Clientes(Direccion, ID_User) VALUES (@pDireccion, @pID_User)} END";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(SQL, new {pDireccion = clie.Direccion, pID_User = clie.ID_User });
+            db.Execute(SQL, new { pDireccion = clie.Direccion, pID_User = clie.ID_User });
         }
 
     }
 
     public static void AgregarValoraciones(Valoraciones valo)
-    { 
-        string SQL = " INSERT INTO Valoraciones (Puntuacion, Comentario, Desea_Recomendarlo, Calificacion)VALUES (@pPuntuacion, @pComentario, @pDesea_Recomendarlo, @pCalificacion) "; 
+    {
+        string SQL = " INSERT INTO Valoraciones (Puntuacion, Comentario, Desea_Recomendarlo, Calificacion)VALUES (@pPuntuacion, @pComentario, @pDesea_Recomendarlo, @pCalificacion) ";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(SQL, new {pPuntuacion = valo.Puntuacion, pComentario = valo.Comentario, pDesea_Recomendarlo = valo.Desea_Recomendarlo, pCalificacion = valo.Calificacion} );
-        } 
-    } 
+            db.Execute(SQL, new { pPuntuacion = valo.Puntuacion, pComentario = valo.Comentario, pDesea_Recomendarlo = valo.Desea_Recomendarlo, pCalificacion = valo.Calificacion });
+        }
+    }
 
     public static int ObtenerUltimoNumeroUsuario()
     {

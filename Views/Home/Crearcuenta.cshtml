@@ -10,23 +10,25 @@
     <div class="contenedorCuenta">
         <h1>Regístrate</h1>
         <div class="options">
-            <form action='@Url.Action("AgregarUsuario")'>
+            <form action='@Url.Action("AgregarUsuario")' method="post">
+                <button type="submit">
                 <div class="option">
                         <img src="~/img/empleador.jpg" alt="Quiero contratar">
                         <h3>Quiero contratar</h3>
                         <hr>
-                        <input type="hidden" name="Trabajador" value="false">
-                        <button type="submit"/>
+                        <input type="hidden" name="Trabajador" value="false">   
                 </div>
+                </button>
             </form>
-            <form action='@Url.Action("AgregarUsuario")'>
+            <form action='@Url.Action("AgregarUsuario")'  method="post">
+                <button type="submit">
                 <div class="option">
                         <img src="~/img/trabajador.jpg" alt="Quiero trabajar">
                         <h3>Quiero trabajar</h3>
                         <hr>
                         <input type="hidden" name="Trabajador" value="true">
-                        <button type="submit"/>
                 </div>
+                <button/>
             </form>
         </div>
         <p class="login-link">¿Ya tienes cuenta? <a href='@Url.Action("Login")'>Iniciar sesión</a></p>

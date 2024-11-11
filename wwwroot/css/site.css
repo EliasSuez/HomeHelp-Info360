@@ -6,6 +6,7 @@
   padding: 0;
   margin: 0;
   /* border: 1px solid black; */
+  font-family: "poppins";
 }
 
 main{
@@ -17,7 +18,7 @@ header{
   background-color: #a8d5df;
   width: 100%;
   height: 4.4em;
-  font-family: "poppins";
+  
 }
 
 header img{
@@ -125,9 +126,9 @@ main .textoSobreImagen {
 }
 
 main .tituloHome {
-  font-size: 9.5rem;
+  font-size: 9rem;
   margin: 0;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "poppins";
 }
 
 main .subtituloHome {
@@ -188,6 +189,13 @@ main .fondoBlanco{
   align-items: flex-start;
   padding-left: 30px;
   border-radius: 0 25px 25px 0;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 h2 {
@@ -311,7 +319,6 @@ main .contenedorPrincipal .Emergencia{
   color: rgb(16, 137, 211);
 }
 
-
 .exit-button {
   position: absolute;
   top: 17px;
@@ -326,78 +333,79 @@ main .contenedorPrincipal .Emergencia{
   border-radius: 5px;
   cursor: pointer;
 }
-
 .contenedorCuenta {
   text-align: center;
   width: 90%;
-  max-width: 1400px;
-  margin: auto;
+  max-width: 1000px;
+  margin: 50px auto;
 }
 
 .contenedorCuenta h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #444;
 }
 
 .options {
   display: flex;
   justify-content: space-around;
-  margin: 50px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .option {
-  width: 45%;
+  width: 100%;
+  max-width: 400px;
   background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.option a {
-  text-decoration: none; 
-  display: block; 
-  height: 100%; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .option:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .option img {
   width: 100%;
   height: auto;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid #eee;
 }
 
 .option h3 {
-  margin: 15px 0 10px;
-  color: #333;
-  font-size: 1.2rem;
-  width: 65%;
+  margin: 20px 0;
+  color: #555;
+  font-size: 1.4rem;
 }
 
 .option hr {
-  width: 60%;
+  width: 50%;
   margin: 10px auto;
   border: none;
   height: 2px;
-  background-color: #333;
+  background-color: #ddd;
 }
 
 .login-link {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: #333;
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #666;
 }
 
 .login-link a {
-  color: #333;
+  color: #007BFF;
   font-weight: bold;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
+
+.login-link a:hover {
+  color: #0056b3;
+}
+
 
 /* COOOKIES */
 
@@ -832,49 +840,3 @@ h1.display-4 {
   }
 } 
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f4f4f9;
-  font-family: Arial, sans-serif;
-  margin: 0;
-}
-.contenedor-tips {
-  display: flex;
-  gap: 20px;
-}
-.tip {
-  width: 250px;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #333;
-  text-align: center;
-}
-.tip img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-.tip1 {
-  background-color: #ffb7a8;
-}
-.tip2 {
-  background-color: #b4e2ef;
-}
-.tip3 {
-  background-color: #d9d9d9;
-}
-.tip1 h2, .tip2 h2, .tip3 h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-.tip1 p, .tip2 p, .tip3 p {
-  font-size: 0.9em;
-  line-height: 1.6;
-}
-
- 
