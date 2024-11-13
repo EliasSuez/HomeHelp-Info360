@@ -87,4 +87,9 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult SubirServicio()
+    {
+        return View();
+    }
 }
