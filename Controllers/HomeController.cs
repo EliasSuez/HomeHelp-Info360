@@ -29,9 +29,9 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult AgregarUsuario(int dni, string nombre, string apellido, string email, string password, DateTime fecha, bool Trabajador, string ? matricula, string ? Direccion)
+    public IActionResult AgregarUsuario(int dni, string nombre, string apellido, string email, string password, DateTime fecha, string ? matricula, string ? Direccion)
     {
-        Usuarios nuevoUsuario = Utilities.CrearUsuario(dni, nombre, apellido, email, password, fecha, Trabajador);
+        Usuarios nuevoUsuario = Utilities.CrearUsuario(dni, nombre, apellido, email, password, fecha, Utilities.Trabajador);
         if(!nuevoUsuario.Trabajador)
         {
             Utilities.CrearTrabajador(matricula);
@@ -41,7 +41,16 @@ public class HomeController : Controller
         }
         return RedirectToAction("Index");
     }
-
+    public IActionResult Register(bool Trabajador)
+    {
+        Utilities.Trabajador = Trabajador;
+        if(Utilities.Trabajador){
+            return View("RegisterTrabajador");
+        }
+        else{
+            return View("RegisterCliente");
+        }
+    }
 
     // [Route("/Home/SingUp")]
     // public IActionResult SignUp()
@@ -54,10 +63,7 @@ public class HomeController : Controller
     //     return View();
     // }
 
-    public IActionResult Register()
-    {
-        return View();
-    }
+    
 
     public IActionResult Crearcuenta()
     {

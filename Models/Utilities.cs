@@ -2,6 +2,7 @@ using System.Data;
 
 public class Utilities
 {
+    public static bool Trabajador{get; set;}
     public static Usuarios CrearUsuario(int dni, string nombre, string apellido, string email, string password, DateTime fecha, bool Trabajador)
     {
         int edad = CalcularEdad(fecha);

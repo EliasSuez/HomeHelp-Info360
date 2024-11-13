@@ -1,17 +1,6 @@
 ﻿let selectedRole = ""; 
+let selecciono = false; 
 
-function visitAs(role) {
-    selectedRole = role;
-    console.log(`Visitando como: ${role}`);
-    document.getElementById("welcomeModal").style.display = "none";
-    
-    const ctaButton = document.getElementById("cta-button");
-    if (role === "trabajador") {
-        ctaButton.innerText = "Ofrece tus servicios ahora";
-    } else if (role === "empleador") {
-        ctaButton.innerText = "Encuentra un profesional ahora";
-    }
-}
 
 function handleButtonClick() {
     if (selectedRole === "trabajador") {
@@ -23,9 +12,9 @@ function handleButtonClick() {
     }
 }
 
-window.onload = function() {
-    document.getElementById("welcomeModal").style.display = "flex";
-};
+// window.onload = function() {
+//     document.getElementById("welcomeModal").style.display = "flex";
+// };
 
 function performSearch() {
     const query = document.getElementById("searchInput").value;

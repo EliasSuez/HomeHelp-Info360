@@ -49,6 +49,7 @@ header a h6{
 }
 
 footer {
+  display: flex;;
   margin-top: 1%;
   background-color: #a8d5df;
   width: 100%;
