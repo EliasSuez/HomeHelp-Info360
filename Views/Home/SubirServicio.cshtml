@@ -19,26 +19,31 @@
   </label> 
   <input id="imagen" type="imagen">  
 
-<div class="FormPublicacion">
-        <form action="/">
-          <p id="h1">Publicar tu Problema</p>
-          <p id="h4">Nombre de tu problema</p>
-          <input placeholder="Escribi el nombre de tu problema" type="text" class="inputPubli">
-          <p id="h4">Sabes el nivel de urgencia?</p>
-          <table>
-            <tbody><tr>
-              <th class="first-col"></th>
-              <th>Inmediato</th>
-              <th>Menos de 30 Minutos</th>
-              <th>Menos de 2 Horas</th>
-              <th>Antes de 24 Horas</th>
-              <th>Antes de 72 Horas</th>
-            </tr> 
-            <p class="login-link">¿No sabes el nivel de urgencia? Apreta<a href='@Url.Action("Tips")'> aquí </a></p>
-           
-          </tbody></table>
-          <p id="h4">Describí tu problema</p>
-          <textarea rows="5"></textarea>
+  
+<div class="flex flex-col items-center justify-center h-screen">
+  <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Subir tu problema</h2>
+    <form class="flex flex-col">
+      <input placeholder="Titulo " class="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" type="text">
+      <input placeholder="Especialidad" class="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" type="text">
+      <input placeholder="Lugar" class="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" type="text">
+      <label class="text-sm mb-2 text-gray-900 cursor-pointer" for="urgencia">
+        Niveles de urgencia 
+      </label>
+      <select class="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" id="gender">
+        <option value="nivel-1">Inmediato</option>
+        <option value="nivel-2">10-15 min</option>
+        <option value="nivel-3">60 min</option> 
+        <option value="nivel-4">2 hs</option> 
+        <option value="nivel-5">4 hs</option>
+      </select>
+      <label class="text-sm mb-2 text-gray-900 cursor-pointer" for="age">
+        Age
+      </label>
+    </form>
+  </div>
+</div>
+
           <div class="btn-Publi">
             <button href='@Url.Action("Publicación")' type="submit">Subir</button>
           </div>
