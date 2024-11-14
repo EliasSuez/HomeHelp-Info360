@@ -72,7 +72,7 @@ public class BD
     {
         db.Execute(SQL, new
         {
-            @pID_Usuario = user.ID_Usuario, // Asegúrate de que esta propiedad exista en la clase Usuarios
+            @pID_Usuario = user.ID_Usuario, 
             @pDNI = user.DNI,
             @pNombre = user.Nombre,
             @pApellido = user.Apellido,
@@ -90,10 +90,10 @@ public class BD
     public static void AgregarTrabajador(Trabajadores tra)
 {
     string SQL = @"
-        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_User = @pID_User)
+        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_User = @pID_Usuario)
         BEGIN
             INSERT INTO Trabajadores (Matricula, ID_Especialidad, ID_User)
-            VALUES (@pMatricula, @pID_Especialidad, @pID_User)
+            VALUES (@pMatricula, @pID_Especialidad, @pID_Usuario)
         END";
     using (SqlConnection db = new SqlConnection(_connectionString))
     {
@@ -101,7 +101,7 @@ public class BD
         {
             @pMatricula = tra.Matricula,
             @pID_Especialidad = tra.ID_Especialidad,
-            @pID_User = tra.ID_User
+            @pID_Usuario = tra.ID_User
         });
     }
 }
@@ -109,17 +109,17 @@ public class BD
     public static void AgregarCliente(Clientes clie)
 {
     string SQL = @"
-        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_User = @pID_User)
+        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_user = @pID_Usuario)
         BEGIN
-            INSERT INTO Clientes (Direccion, ID_User)
-            VALUES (@pDireccion, @pID_User)
+            INSERT INTO Clientes (Direccion, ID_user)
+            VALUES (@pDireccion, @pID_Usuario)
         END";
     using (SqlConnection db = new SqlConnection(_connectionString))
     {
         db.Execute(SQL, new
         {
             @pDireccion = clie.Direccion,
-            @pID_User = clie.ID_User
+            @pID_Usuario = clie.ID_User
         });
     }
 } 
