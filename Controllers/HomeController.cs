@@ -39,7 +39,7 @@ public class HomeController : Controller
         else{
             Utilities.CrearCliente(Direccion);
         }
-        return RedirectToAction("Index");
+        return RedirectToAction("SignUp");
     }
     public IActionResult Register(bool Trabajador)
     {
@@ -52,18 +52,29 @@ public class HomeController : Controller
         }
     }
 
-    // [Route("/Home/SingUp")]
-    // public IActionResult SignUp()
-    // {
-    //     Response.Cookies.Delete("UserId");
-    //     Response.Cookies.Append("UserId", "123456");
-    //     string user = Request.Cookies["UserId"];
+    [Route("/Home/SignUp")]
+    public IActionResult SignUp()
+    {
+        // Elimina la cookie si ya existe
+        Response.Cookies.Delete("UserId");
 
-    //     Console.WriteLine(user ?? " No hay usuariodefinido");
-    //     return View();
-    // }
+        // Agrega una nueva cookie
+        Response.Cookies.Append("UserId", "123456", new CookieOptions
+        {
+            Expires = DateTime.Now.AddDays(1),  // Establece la expiración de la cookie
+            HttpOnly = true,  // Solo accesible a través de HTTP
+            Secure = true,    // Solo se enviará por HTTPS
+        });
 
-    
+        // Obtiene el valor de la cookie
+        string user = Request.Cookies["UserId"];
+
+        // Muestra el valor de la cookie o un mensaje si no existe
+        Console.WriteLine(user ?? " No hay usuario definido");
+
+        return View("Index");
+    }
+
 
     public IActionResult Crearcuenta()
     {
