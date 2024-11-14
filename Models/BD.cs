@@ -90,10 +90,10 @@ public class BD
     public static void AgregarTrabajador(Trabajadores tra)
 {
     string SQL = @"
-        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_User = @pID_Usuario)
+        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_Usuario = @pID_User)
         BEGIN
             INSERT INTO Trabajadores (Matricula, ID_Especialidad, ID_User)
-            VALUES (@pMatricula, @pID_Especialidad, @pID_Usuario)
+            VALUES (@pMatricula, @pID_Especialidad, @pID_User)
         END";
     using (SqlConnection db = new SqlConnection(_connectionString))
     {
@@ -101,28 +101,30 @@ public class BD
         {
             @pMatricula = tra.Matricula,
             @pID_Especialidad = tra.ID_Especialidad,
-            @pID_Usuario = tra.ID_User
+            @pID_User = tra.ID_User  
         });
     }
 }
 
+
     public static void AgregarCliente(Clientes clie)
 {
     string SQL = @"
-        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_user = @pID_Usuario)
+        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_Usuario = @pID_user)
         BEGIN
             INSERT INTO Clientes (Direccion, ID_user)
-            VALUES (@pDireccion, @pID_Usuario)
+            VALUES (@pDireccion, @pID_user)
         END";
     using (SqlConnection db = new SqlConnection(_connectionString))
     {
         db.Execute(SQL, new
         {
             @pDireccion = clie.Direccion,
-            @pID_Usuario = clie.ID_User
+            @pID_user = clie.ID_User  
         });
     }
-} 
+}
+
 
     public static void AgregarValoraciones(Valoraciones valo)
     {

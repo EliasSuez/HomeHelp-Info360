@@ -32,7 +32,7 @@ public class HomeController : Controller
     public IActionResult AgregarUsuario(int dni, string nombre, string apellido, string email, string password, DateTime fecha, string ? matricula, string ? Direccion)
     {
         Usuarios nuevoUsuario = Utilities.CrearUsuario(dni, nombre, apellido, email, password, fecha, Utilities.Trabajador);
-        if(!nuevoUsuario.Trabajador)
+        if(nuevoUsuario.Trabajador)
         {
             Utilities.CrearTrabajador(matricula);
         }
