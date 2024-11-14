@@ -61,23 +61,49 @@ public class BD
     }
 
     public static void AgregarUsuario(Usuarios user)
+{
+    string SQL = @"
+        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_Usuario = @pID_Usuario)
+        BEGIN
+            INSERT INTO Usuarios (DNI, Nombre, Apellido, Edad, ID_Valoracion, Trabajador, Email, Password, Foto)
+            VALUES (@pDNI, @pNombre, @pApellido, @pEdad, @pID_Valoracion, @pTrabajador, @pEmail, @pPassword, @pFoto)
+        END";
+    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-        string SQL = " IF NOT EXIST (SELECT ID_Usuario FROM Usuarios WHERE ID_Usuario = @pID_Usuario) BEGIN {INSERT INTO Usuarios( DNI, Nombre, Apellido, Edad, ID_Valoracion, Trabajador, Email, Password, Foto) VALUES (@pDNI, @pNombre,@pApellido, @pEdad, @pID_Valoracion, @pTrabajador, @pEmail, @pPassword, @pFoto)} END";
-        using (SqlConnection db = new SqlConnection(_connectionString))
+        db.Execute(SQL, new
         {
-            db.Execute(SQL, new { @pDNI = user.DNI, @pNombre = user.Nombre, @pApellido = user.Apellido, @pEdad = user.Edad, @pID_Valoracion = user.ID_Valoracion, @pTrabajador = user.Trabajador, @pEmail = user.Email, @pPassword = user.Password, @pFoto = user.Foto });
-        }
-
+            @pDNI = user.DNI,
+            @pNombre = user.Nombre,
+            @pApellido = user.Apellido,
+            @pEdad = user.Edad,
+            @pID_Valoracion = user.ID_Valoracion,
+            @pTrabajador = user.Trabajador,
+            @pEmail = user.Email,
+            @pPassword = user.Password,
+            @pFoto = user.Foto
+        });
     }
+}
+
     public static void AgregarTrabajador(Trabajadores tra)
+{
+    string SQL = @"
+        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_User = @pID_User)
+        BEGIN
+            INSERT INTO Trabajadores (Matricula, ID_Especialidad, ID_User)
+            VALUES (@pMatricula, @pID_Especialidad, @pID_User)
+        END";
+    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-
-        string SQL = "IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_User = @pID_User) BEGIN { INSERT INTO Trabajadores (Matricula, ID_Especialidad, ID_User)VALUES (@pMatricula, @pEspecialidad, @pID_user) } ; END";
-        using (SqlConnection db = new SqlConnection(_connectionString))
+        db.Execute(SQL, new
         {
-            db.Execute(SQL, new { @pMatricula = tra.Matricula, @pID_Especialidad = tra.ID_Especialidad, @pID_User = tra.ID_User });
-        }
+            @pMatricula = tra.Matricula,
+            @pID_Especialidad = tra.ID_Especialidad,
+            @pID_User = tra.ID_User
+        });
     }
+}
+
     public static void AgregarCliente(Clientes clie)
     {
         string SQL = " IF NOT EXIST (SELECT 1 FROM Usuarios WHERE ID_User = @pID_User) BEGIN {INSERT INTO Clientes(Direccion, ID_User) VALUES (@pDireccion, @pID_User)} END";
