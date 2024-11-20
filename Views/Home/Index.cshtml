@@ -1,4 +1,8 @@
 ﻿<main>
+
+    @if(ViewBag.user != null){
+        <h1>Bienvenido</h1>
+    }
     <div id="welcomeModal" class="modal-overlay">
         <div class="modal-content">
             <h1>HomeHelp</h1>
@@ -48,23 +52,62 @@
 </div>
 
 
-<h1 class="display-4">!Mira todos los problemas que podes solucionar con HomeHelp!</h1>
-<div class="Imagenescarrousel">
-  <div class="box">
-    <img src="~/img/Foto carrousel 1.jpg">
-  </div>
-  <div class="box">
-    <img src="~/img/Foto carrousel 2.jpeg">
-  </div>
-  <div class="box">
-    <img src="~/img/Imagen carrousel 3.jpg">
-  </div>
-  <div class="box">
-    <img src="~/img/Imagen 4 carrousel.jpg">
-  </div>
-</div>
+<h1 class="display-4">¡Mira todos los problemas que podes solucionar con HomeHelp!</h1>
+
+    <div>
+        <hr>
+        
+        <div class="d-flex align-items-center">
+            <img src="~/img/facebook.png" class="ms-5" style="width: 4vw; height: 8vh;border-radius: 40px;">
+            <h4 class="ms-4">Martin</h4>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <h6>"KLSAKJASDKLJADLKJ"</h6>
+        </div>
+
+        <div class="d-flex justify-content-end me-5">
+            <h1>★★★★★</h1>
+        </div>
+
+        <hr>
+    </div>
+
+    <div>        
+        <div class="d-flex align-items-center">
+            <img src="~/img/facebook.png" class="ms-5" style="width: 4vw; height: 8vh;border-radius: 40px;">
+            <h4 class="ms-4">Martin</h4>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <h6>"KLSAKJASDKLJADLKJ"</h6>
+        </div>
+
+        <div class="d-flex justify-content-end me-5">
+            <h1>★★★★★</h1>
+        </div>
+
+        <hr>
+    </div>
+
+    <div>        
+        <div class="d-flex align-items-center">
+            <img src="~/img/facebook.png" class="ms-5" style="width: 4vw; height: 8vh;border-radius: 40px;">
+            <h4 class="ms-4">Martin</h4>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <h6>"KLSAKJASDKLJADLKJ"</h6>
+        </div>
+
+        <div class="d-flex justify-content-end me-5">
+            <h1>★★★★★</h1>
+        </div>
+
+        <hr>
+    </div>
+
     <script src="~/scripts/welcomeModal.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
 </main>
