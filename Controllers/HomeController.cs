@@ -15,6 +15,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.user = Request.Cookies["UserId"];
+        
         return View();
     }
     
@@ -52,12 +54,9 @@ public class HomeController : Controller
         }
     }
 
-    [Route("/Home/SignUp")]
+    [Route("/Home/SignUpUser")]
     public IActionResult SignUp()
     {
-        // Elimina la cookie si ya existe
-        Response.Cookies.Delete("UserId");
-
         // Agrega una nueva cookie
         Response.Cookies.Append("UserId", "123456", new CookieOptions
         {
@@ -71,8 +70,13 @@ public class HomeController : Controller
 
         // Muestra el valor de la cookie o un mensaje si no existe
         Console.WriteLine(user ?? " No hay usuario definido");
-
         return View("Index");
+    }
+    
+    public IActionResult LogOut(){
+
+        Response.Cookies.Delete("UserId");
+        return RedirectToAction("Index");
     }
 
 
