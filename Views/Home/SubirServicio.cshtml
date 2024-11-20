@@ -5,7 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subir un servicio</title>
 </head>
-<body> 
+<body>   
+
+    <h3 class="textPubli"> SUBÍ TU INCONVENIENTE </h3> 
+
+
+
+<!-- Formulario para subir archivos --> 
+<div class = "subirImagen"> 
+
+<form asp-action="Upload" asp-controller="File" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="uploadedFile">Selecciona un archivo:</label>
+        <input type="file" id="uploadedFile" name="uploadedFile" />
+    </div>
+    <br />
+    <button type="submit">Subir Archivo</button>
+</form>
+</div> 
+<!-- Mensaje de resultado -->
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+} 
 <div class="form-container">
     <div class="form-group">
         <label for="title">Título</label>
@@ -33,7 +55,10 @@
     <div class="form-group">
         <label for="location">Lugar</label>
         <input type="text" id="location" placeholder="Añade el lugar">
-    </div>
+    </div> 
+    <div> 
+   <button class="submit" id="botonEnviar">Subir</button>
+    </div> 
 </div>
 
 

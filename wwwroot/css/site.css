@@ -5,7 +5,7 @@
 *{
   padding: 0;
   margin: 0;
-  /* border: 1px solid black; */
+  /* border: 1px solid black;  */
   font-family: "poppins";
 }
 
@@ -953,13 +953,19 @@ input:-webkit-autofill:active {
   -webkit-transition-delay: 9999s;
 }
 
-/* Subir un problema */  
+/* Subir un problema */ 
+.textPubli
+{
+  text-align: center;
+}   
+
 .form-container { 
-  margin-left: 800px;
+  margin: 20px;
+  float: left;
   background-color: #e0f7fa;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
+  width: 38%;
 }
 .form-group {
   margin-bottom: 20px;
@@ -984,4 +990,64 @@ input:-webkit-autofill:active {
   color: #00838f;
   text-decoration: underline;
   cursor: pointer;
+} 
+
+.subirImagen{
+  width: 45%;
+  float: left;
+  margin-left: 100px;
+}
+
+.subirImagen h1 {
+  text-align: center;
+  color: #333;
+}
+
+.subirImagen form {
+  max-width: 900px;
+  margin: 20px;
+  padding: 265px;
+  background: #e0f7fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.subirImagen label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.subirImagen input[type="file"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #b2ebf2;
+}
+
+.subirImagen button {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.subirImagen button:hover {
+  background: #0056b3;
+}
+
+.subirImagen p {
+  text-align: center;
+  font-size: 14px;
+  color: green;
+  margin-top: 20px;
 }

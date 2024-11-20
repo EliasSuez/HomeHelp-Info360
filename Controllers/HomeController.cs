@@ -102,5 +102,43 @@ public class HomeController : Controller
     public IActionResult SubirServicio()
     {
         return View();
+    } 
+
+    public class FileController : Controller
+{
+    private readonly string _uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+
+    public IActionResult Index()
+    {
+        return View();
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Upload(IFormFile uploadedFile)
+    {
+        if (uploadedFile != null && uploadedFile.Length > 0)
+        {
+            // Asegúrate de que la carpeta de destino exista
+            if (!Directory.Exists(_uploadPath))
+            {
+                Directory.CreateDirectory(_uploadPath);
+            }
+
+            // Guarda el archivo en la carpeta "uploads"
+            var filePath = Path.Combine(_uploadPath, uploadedFile.FileName);
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await uploadedFile.CopyToAsync(stream);
+            }
+
+            ViewBag.Message = "Archivo subido exitosamente: " + uploadedFile.FileName;
+        }
+        else
+        {
+            ViewBag.Message = "Por favor selecciona un archivo válido.";
+        }
+
+        return View("Index");
+    }
+}
 }
