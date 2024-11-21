@@ -1,16 +1,11 @@
 ﻿<main>
 
-    @if(ViewBag.user != null){
-        <h1>Bienvenido</h1>
+    @if(ViewBag.user != null && ViewBag.Trabajador == true){
+        <h1>Bienvenido Trabajador</h1>
     }
-    <div id="welcomeModal" class="modal-overlay">
-        <div class="modal-content">
-            <h1>HomeHelp</h1>
-            <h2>En busca que de estas</h2>
-            <button onclick="visitAs('trabajador')" class="btn btn-primary">Brindar una solución</button>
-            <button onclick="visitAs('empleador')" class="btn btn-secondary">Buscar ayuda de un profesional</button>
-        </div>
-    </div>
+    @if(ViewBag.user != null && ViewBag.Trabajador == false){
+        <h1>HOLAAAAAAAAAAAAAAAAAaaaaAA CArlos</h1>
+    }
 
     <div class="contenedor">
         <img src="~/img/fotoFondo.png" class="ImagenNostros" />
@@ -28,7 +23,6 @@
             <img src="~/img/emergenciaSimbolo.png" alt="Alarma" class="Emergencia">
             <p>En caso de tener una emergencia llame al <a href="tel:48638888">4863-8888</a></p>
         </div>
-
         <div class="tarjeta tarjetaContacto">
             <h2><span class="contacto">Contacto</span> directo entre usuarios</h2>
             <img src="~/img/personasConversando.png" alt="Contacto" class="icono">

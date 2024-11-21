@@ -16,7 +16,9 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewBag.user = Request.Cookies["UserId"];
-        
+        ViewBag.Trabajador = Utilities.Trabajador;
+        Console.WriteLine($"Valor de la cookie UserId: {ViewBag.user ?? "nulo"}");
+        Console.WriteLine($"Eres trabajador: {ViewBag.Trabajador ?? "nulo"}");
         return View();
     }
     
@@ -62,7 +64,7 @@ public class HomeController : Controller
         {
             Expires = DateTime.Now.AddDays(1),  // Establece la expiración de la cookie
             HttpOnly = true,  // Solo accesible a través de HTTP
-            Secure = true,    // Solo se enviará por HTTPS
+            Secure = false,    // Solo se enviará por HTTPS
         });
 
         // Obtiene el valor de la cookie
