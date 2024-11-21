@@ -31,6 +31,10 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult BrindarServicios()
+    {
+        return View();
+    }
 
     [HttpPost]
     public IActionResult AgregarUsuario(int dni, string nombre, string apellido, string email, string password, DateTime fecha, string ? matricula, string ? Direccion)

@@ -17,7 +17,13 @@
         <a href='@Url.Action("Crearcuenta")'><img src="~/img/Icon.png" class="user"></a>
         <a href='@Url.Action()'><h6>Chat</h6></a>
         <a href='@Url.Action("Tips")'><h6>Consejos</h6></a>
-        <a href='@Url.Action("Servicios")'><h6>Servicios</h6></a>
+        @if(ViewBag.Trabajador == true){
+            <a href='@Url.Action("Servicios")'><h6>Servicios</h6></a>
+        }
+        else{
+            <a href='@Url.Action("BrindarServicios")'><h6>Servicios</h6></a>
+        }
+        
     </header>
 
     <main role="main">
@@ -35,9 +41,14 @@
             <img src="~/img/linkedin.png" class="logos">
         </div>
         <div>
-        <a href='@Url.Action()'><p>Usuarios</p></a>
-        <a href='@Url.Action()'><p>Servicios</p></a>
-        <a href='@Url.Action()'><p>Consejos</p></a>
+        <a href='@Url.Action("Crearcuenta")'><p>Usuarios</p></a>
+         @if(ViewBag.Trabajador == true){
+            <a href='@Url.Action("BrindarServicios")'><h6>Servicios</h6></a>
+        }
+        else{
+            <a href='@Url.Action("Servicios")'><h6>Servicios</h6></a>
+        }
+        <a href='@Url.Action("Tips")'><p>Consejos</p></a>
         </div>
         <div>
         <a href='@Url.Action("PoliticaPrivacidad")'><p>Política de privacidad</p></a>
