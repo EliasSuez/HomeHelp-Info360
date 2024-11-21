@@ -100,7 +100,7 @@ public class BD
         db.Execute(SQL, new
         {
             @pMatricula = tra.Matricula,
-            @pID_Especialidad = tra.ID_Especialidad,
+            @pID_Especialidad = 1,
             @pID_User = tra.ID_User  
         });
     }

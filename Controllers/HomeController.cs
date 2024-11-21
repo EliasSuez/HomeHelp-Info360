@@ -50,7 +50,8 @@ public class HomeController : Controller
         return RedirectToAction("SignUp");
     }
     public IActionResult Register(bool Trabajador)
-    {
+    {   
+        Console.WriteLine(Trabajador);
         Utilities.Trabajador = Trabajador;
         if(Utilities.Trabajador){
             return View("RegisterTrabajador");
