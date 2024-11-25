@@ -5,7 +5,7 @@ public class BD
 {
     private static List<Usuarios> _ListaUsuarios;
     private static List<Trabajadores> _ListaTrabajadores;
-    private static List<Servicios> _ListaServicios;
+    
     private static List<Valoraciones> _ListaValoraciones;
     private static List<Clientes> _ListaClientes;
 
@@ -31,16 +31,7 @@ public class BD
         return _ListaTrabajadores;
     }
 
-    public static List<Servicios> ObtenerServicios()
-    {
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string sql = "SELECT * FROM Servicios";
-            _ListaServicios = db.Query<Servicios>(sql).ToList();
-        }
-        return _ListaServicios;
-    }
-
+   
     public static List<Valoraciones> ObtenerValoraciones()
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
