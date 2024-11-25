@@ -54,11 +54,8 @@ public class BD
     public static void AgregarUsuario(Usuarios user)
 {
     string SQL = @"
-        IF NOT EXISTS (SELECT ID_Usuario FROM Usuarios WHERE ID_Usuario = @pID_Usuario)
-        BEGIN
             INSERT INTO Usuarios (DNI, Nombre, Apellido, Edad, ID_Valoracion, Trabajador, Email, Password, Foto)
-            VALUES (@pDNI, @pNombre, @pApellido, @pEdad, @pID_Valoracion, @pTrabajador, @pEmail, @pPassword, @pFoto)
-        END";
+            VALUES (@pDNI, @pNombre, @pApellido, @pEdad, @pID_Valoracion, @pTrabajador, @pEmail, @pPassword, @pFoto)";
     using (SqlConnection db = new SqlConnection(_connectionString))
     {
         db.Execute(SQL, new
@@ -81,11 +78,8 @@ public class BD
     public static void AgregarTrabajador(Trabajadores tra)
 {
     string SQL = @"
-        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_Usuario = @pID_User)
-        BEGIN
             INSERT INTO Trabajadores (Matricula, ID_Especialidad, ID_User)
-            VALUES (@pMatricula, @pID_Especialidad, @pID_User)
-        END";
+            VALUES (@pMatricula, @pID_Especialidad, @pID_User)";
     using (SqlConnection db = new SqlConnection(_connectionString))
     {
         db.Execute(SQL, new
@@ -130,11 +124,11 @@ public class BD
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT ISNULL(MAX(Numberuser), 0) FROM Usuarios";
+            string sql = "SELECT TOP 1 ID_Usuario FROM Usuarios ORDER BY ID_Usuario DESC";
             return db.ExecuteScalar<int>(sql);
         }
     }
 
-    
+
 
 }

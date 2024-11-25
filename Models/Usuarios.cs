@@ -6,7 +6,7 @@ public class Usuarios
 
     public int Edad  {get; set;}  
 
-    public int ID_Valoracion {get; set;}
+    public int? ID_Valoracion {get; set;}
    
     public bool Trabajador {get; set;} 
 

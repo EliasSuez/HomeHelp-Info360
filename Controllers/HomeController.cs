@@ -16,6 +16,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewBag.user = Request.Cookies["UserId"];
+
         ViewBag.Trabajador = Utilities.Trabajador;
         Console.WriteLine($"Valor de la cookie UserId: {ViewBag.user ?? "nulo"}");
         Console.WriteLine($"Eres trabajador: {ViewBag.Trabajador ?? "nulo"}");
@@ -37,15 +38,16 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult AgregarUsuario(int dni, string nombre, string apellido, string email, string password, DateTime fecha, string ? matricula, string ? Direccion)
+    public IActionResult AgregarUsuario(int dni, string nombre, string apellido, string email, string password, DateTime fecha, string ? matricula, string ? Direccion, int ? IdValoracion)
     {
-        Usuarios nuevoUsuario = Utilities.CrearUsuario(dni, nombre, apellido, email, password, fecha, Utilities.Trabajador);
+        int idUsuario = BD.ObtenerUltimoNumeroUsuario();
+        Usuarios nuevoUsuario = Utilities.CrearUsuario(dni, nombre, apellido, email, password, fecha, Utilities.Trabajador, IdValoracion);
         if(nuevoUsuario.Trabajador)
         {
-            Utilities.CrearTrabajador(matricula);
+            Utilities.CrearTrabajador(matricula, idUsuario);
         }
         else{
-            Utilities.CrearCliente(Direccion);
+            Utilities.CrearCliente(Direccion, idUsuario);
         }
         return RedirectToAction("SignUp");
     }
@@ -54,10 +56,10 @@ public class HomeController : Controller
         Console.WriteLine(Trabajador);
         Utilities.Trabajador = Trabajador;
         if(Utilities.Trabajador){
-            return View("RegisterTrabajador");
+            return RedirectToAction("RegisterTrabajador");
         }
         else{
-            return View("RegisterCliente");
+            return RedirectToAction("RegisterCliente");
         }
     }
 
@@ -66,23 +68,25 @@ public class HomeController : Controller
     {
         // Agrega una nueva cookie
         Response.Cookies.Append("UserId", "123456", new CookieOptions
-        {
-            Expires = DateTime.Now.AddDays(1),  // Establece la expiración de la cookie
-            HttpOnly = true,  // Solo accesible a través de HTTP
-            Secure = false,    // Solo se enviará por HTTPS
-        });
+            {   
+                Expires = DateTime.Now.AddDays(1),  // Establece la expiración de la cookie
+                HttpOnly = true,  // Solo accesible a través de HTTP
+                Secure = false,    // Solo se enviará por HTTPS
+            }
+        );
 
         // Obtiene el valor de la cookie
         string user = Request.Cookies["UserId"];
 
         // Muestra el valor de la cookie o un mensaje si no existe
-        Console.WriteLine(user ?? " No hay usuario definido");
+        // Console.WriteLine(user ?? " No hay usuario definido");
         return View("Index");
     }
     
     public IActionResult LogOut(){
 
         Response.Cookies.Delete("UserId");
+
         return RedirectToAction("Index");
     }
 
