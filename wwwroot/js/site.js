@@ -134,4 +134,32 @@ document.querySelector(".formCliente").addEventListener("submit", function(event
 });
 
 
+function ConfirmarArreglo(usuarioId) {
+    let conf = confirm("¿Estás seguro de que deseas arreglarlo?");
+    if (conf) {
+        $.ajax({
+            url: "/Home/MarcarArreglado", 
+            method: "POST",
+            data: { UsuarioId: usuarioId },
+            success: function (response) {
+                if (response.success) {
+                    alert("El trabajo fue aceptado.");
+
+                    let button = document.querySelector(`[data-usuario-id='${usuarioId}']`);
+                    if (button) {
+                        button.disabled = true;
+                        button.innerText = "Aceptado";
+                        button.style.backgroundColor = "#ccc";
+                        button.style.cursor = "not-allowed";
+                    }
+                } else {
+                    alert("Error: " + response.message);
+                }
+            },
+            error: function () {
+                alert("Ocurrió un error al procesar la solicitud.");
+            }
+        });
+    }
+}
 

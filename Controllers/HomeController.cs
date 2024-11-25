@@ -17,16 +17,32 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewBag.user = Request.Cookies["UserId"];
-
         ViewBag.Trabajador = Utilities.Trabajador;
         Console.WriteLine($"Valor de la cookie UserId: {ViewBag.user ?? "nulo"}");
         Console.WriteLine($"Eres trabajador: {ViewBag.Trabajador ?? "nulo"}");
         return View();
     }
     
+    [HttpGet("/Home/UsuarioProblema")]
+    public IActionResult UsuarioProblema(int UsuarioId)
+    {
+        ViewBag.UserBuscado = BD.ObtenerUsuarioPorID(UsuarioId);
+        
+        return View();
+    }
+
     public IActionResult PoliticaPrivacidad()
     {
         return View();
+    }
+
+
+    [HttpPost]
+    public IActionResult MarcarArreglado(int UsuarioId)
+    {
+        BD.MarcarProblemaComoArreglado(UsuarioId);
+
+        return Json(new { success = true });
     }
 
     public IActionResult Login()
@@ -35,6 +51,7 @@ public class HomeController : Controller
     }
     public IActionResult BrindarServicios()
     {
+        ViewBag.Usuarios = BD.ObtenerUsuarios();
         return View();
     }
 
@@ -56,6 +73,7 @@ public class HomeController : Controller
     {   
         Console.WriteLine(Trabajador);
         Utilities.Trabajador = Trabajador;
+        Console.WriteLine(Request.Cookies["UserId"]);
         if(Utilities.Trabajador){
             return RedirectToAction("RegisterTrabajador");
         }

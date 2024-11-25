@@ -9,8 +9,8 @@ public class BD
     private static List<Valoraciones> _ListaValoraciones;
     private static List<Clientes> _ListaClientes;
 
-    private static string _connectionString = @"Server=localhost; DataBase=HOMEHELP;Trusted_Connection=True; ";
-
+    private static string _connectionString = @"Server=DESKTOP-NLK60DB\SQLEXPRESS; DataBase=HOMEHELP;Trusted_Connection=True; ";
+    
     public static List<Usuarios> ObtenerUsuarios()
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
@@ -31,7 +31,14 @@ public class BD
         return _ListaTrabajadores;
     }
 
-   
+   public static Usuarios ObtenerUsuarioPorID(int ID)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Usuarios WHERE ID_Usuario = @pID";
+            return db.QueryFirstOrDefault<Usuarios>(sql, new { @pID = ID });
+        }
+    }
     public static List<Valoraciones> ObtenerValoraciones()
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
@@ -93,27 +100,37 @@ public class BD
 
 
     public static void AgregarCliente(Clientes clie)
-{
-    string SQL = @"
-        IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_Usuario = @pID_user)
-        BEGIN
-            INSERT INTO Clientes (Direccion, ID_user)
-            VALUES (@pDireccion, @pID_user)
-        END";
-    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-        db.Execute(SQL, new
+        string SQL = @"
+            IF NOT EXISTS (SELECT 1 FROM Usuarios WHERE ID_Usuario = @pID_user)
+            BEGIN
+                INSERT INTO Clientes (Direccion, ID_user, Arreglo)
+                VALUES (@pDireccion, @pID_user, @pArreglo)
+            END";
+        using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            @pDireccion = clie.Direccion,
-            @pID_user = clie.ID_User  
-        });
+            db.Execute(SQL, new
+            {
+                @pDireccion = clie.Direccion,
+                @pID_user = clie.ID_User,  
+                @pArreglo = true
+            });
+        }
     }
-}
+
+    public static void MarcarProblemaComoArreglado(int UsuarioId)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "UPDATE Clientes SET Arreglo = 0 WHERE ID_User = @pID";
+            db.Execute(sql, new { @pID = UsuarioId });
+        }
+    }
 
 
     public static void AgregarValoraciones(Valoraciones valo)
     {
-        string SQL = " INSERT INTO Valoraciones (Puntuacion, Comentario, Desea_Recomendarlo, Calificacion)VALUES (@pPuntuacion, @pComentario, @pDesea_Recomendarlo, @pCalificacion) ";
+        string SQL = "INSERT INTO Valoraciones (Puntuacion, Comentario, Desea_Recomendarlo, Calificacion)VALUES (@pPuntuacion, @pComentario, @pDesea_Recomendarlo, @pCalificacion) ";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(SQL, new { @pPuntuacion = valo.Puntuacion, @pComentario = valo.Comentario, @pDesea_Recomendarlo = valo.Desea_Recomendarlo, @pCalificacion = valo.Calificacion });
