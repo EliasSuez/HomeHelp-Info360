@@ -145,7 +145,16 @@ public class BD
             return db.ExecuteScalar<int>(sql);
         }
     }
+    public static string ObtenerEspecialidadTrabajador()
+    {
+        
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+          string SQL = "SELECT Especialidades.especialidad, Trabajador.matricula, Usuarios.nombre FROM Trabajadores INNER JOIN Especialidades ON Trabajadores.ID_Especialidad  INNER JOIN Usuarios ON Trabajadores.ID_Usuer WHERE ID_Trabajador = @idtrabajador ";
+          return db.ExecuteScalar<string>(SQL);
+        }
 
+    }
 
 
 }

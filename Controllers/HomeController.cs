@@ -130,6 +130,7 @@ public class HomeController : Controller
     }
     public IActionResult Servicios()
     {
+       ViewBag.Trabajadores = BD.ObtenerEspecialidadTrabajador(); 
         return View();
     }
 
