@@ -164,7 +164,7 @@ function ConfirmarArreglo(usuarioId) {
 }
 
 function ConfirmarTrabajador(usuarioId) {
-    let conf = confirm("¿Estás seguro de que deseas arreglarlo?");
+    let conf = confirm("¿Estás seguro de que deseas contratarlo?");
     if (conf) {
         $.ajax({
             url: "/Home/MarcarTrabajo", 
@@ -172,7 +172,7 @@ function ConfirmarTrabajador(usuarioId) {
             data: { UsuarioId: usuarioId },
             success: function (response) {
                 if (response.success) {
-                    alert("El trabajo fue aceptado.");
+                    alert("El contrato fue realizado.");
 
                     let button = document.querySelector(`[data-usuario-id='${usuarioId}']`);
                     if (button) {
