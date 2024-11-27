@@ -10,7 +10,7 @@
 
     <form action='@Url.Action("MarcarArreglado", "Home")' method="get">
         <input type="hidden" name="TrabajadorId" value="@ViewBag.UserBuscado.ID_Usuario" />
-        <button type="button" onclick="ConfirmarArreglo(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Contratar</button>
+        <button type="button" onclick="ConfirmarTrabajador(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Contratar</button>
     </form>
 </body>
 </html>

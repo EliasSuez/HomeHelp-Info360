@@ -45,6 +45,13 @@ public class HomeController : Controller
         return Json(new { success = true });
     }
 
+    [HttpPost]
+    public IActionResult MarcarTrabajo(int UsuarioId)
+    {
+        BD.MarcarTrabajador(UsuarioId);
+
+        return Json(new { success = true });
+    }
     public IActionResult Login()
     {
         return View();

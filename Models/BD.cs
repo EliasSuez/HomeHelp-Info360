@@ -127,6 +127,15 @@ public class BD
         }
     }
 
+    public static void MarcarTrabajador(int UsuarioId)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "UPDATE Trabajador SET hora_dispo = 0 WHERE ID_User = @pID";
+            db.Execute(sql, new { @pID = UsuarioId });
+        }
+    }
+
 
     public static void AgregarValoraciones(Valoraciones valo)
     {
