@@ -6,33 +6,17 @@
     <title>Confirmar Arreglo</title>
 </head>
 <body> 
-    <div class="card-container">
-    <h1 class="text-center">Problema de @ViewBag.UserBuscado.Nombre</h1>
-
-    <form action='@Url.Action("MarcarArreglado", "Home")' method="get">
+    <div class="card text-center">
+  <div class="card-header">
+    Problema a Solucionar 
+  </div>
+  <div class="card-body"> <h1 class="text-center"></h1>
+    <h5 class="card-title">Problema de @ViewBag.UserBuscado.Nombre</h5>
+     <form action='@Url.Action("MarcarArreglado", "Home")' method="get">
         <input type="hidden" name="UsuarioId" value="@ViewBag.UserBuscado.ID_Usuario" />
         <button type="button" onclick="ConfirmarArreglo(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Arreglar</button>
     </form> 
-    </div>  
-
-    <style>
-    * {
-        box-sizing: border-box;
-    }
-    .card {
-        border: 1px solid black;
-        margin: 10px;
-        width: 18rem;
-        max-height: 300px;
-        float: left;
-    }
-
-    .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        padding: 20px;
-    }
-</style>
+  </div>
+</div>
 </body>
 </html>
