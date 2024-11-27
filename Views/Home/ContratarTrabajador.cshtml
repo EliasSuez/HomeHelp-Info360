@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Arreglo</title>
+</head>
+<body>
+    <h1 class="text-center">Problema de @ViewBag.UserBuscado.Nombre</h1>
+
+    <form action='@Url.Action("MarcarArreglado", "Home")' method="get">
+        <input type="hidden" name="TrabajadorId" value="@ViewBag.UserBuscado.ID_Usuario" />
+        <button type="button" onclick="ConfirmarArreglo(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Contratar</button>
+    </form>
+</body>
+</html>

@@ -137,6 +137,12 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult ContratarTrabajador(int TrabajadorId)
+    {
+        ViewBag.UserBuscado = BD.ObtenerUsuarioPorID(TrabajadorId);
+        return  View();
+    }
+
 
     public class FileController : Controller
 {
