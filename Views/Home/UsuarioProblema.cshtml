@@ -8,10 +8,9 @@
 <body>
     <h1 class="text-center">Problema de @ViewBag.UserBuscado.Nombre</h1>
 
-    <form action="@Url.Action("MarcarArreglado", "Home")" method="get">
+    <form action='@Url.Action("MarcarArreglado", "Home")' method="get">
         <input type="hidden" name="UsuarioId" value="@ViewBag.UserBuscado.ID_Usuario" />
-        <button type="button" onclick="ConfirmarArreglo(@ViewBag.UserBuscado.ID_Usuario) data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Arreglar</button>
+        <button type="button" onclick="ConfirmarArreglo(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Arreglar</button>
     </form>
-
 </body>
 </html>

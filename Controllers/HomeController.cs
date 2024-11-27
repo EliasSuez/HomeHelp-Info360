@@ -52,6 +52,8 @@ public class HomeController : Controller
     public IActionResult BrindarServicios()
     {
         ViewBag.Usuarios = BD.ObtenerUsuarios();
+        ViewBag.Login = Request.Cookies["UserId"];
+        Console.WriteLine(ViewBag.Login);
         return View();
     }
 
@@ -130,15 +132,11 @@ public class HomeController : Controller
     }
     public IActionResult Servicios()
     {
-       ViewBag.Trabajadores = BD.ObtenerEspecialidadTrabajador();  
-       
+       ViewBag.Trabajadores = BD.ObtenerUsuarios(); 
+       ViewBag.Login = Request.Cookies["UserId"]; 
         return View();
     }
 
-    public IActionResult SubirServicio()
-    {
-        return View();
-    } 
 
     public class FileController : Controller
 {

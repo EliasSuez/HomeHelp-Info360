@@ -9,18 +9,25 @@
     <div class="card-container">
     @foreach (Usuarios user in ViewBag.Usuarios)
     {
-        <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Arreglar el problema de @user.Nombre</p>
-                <p class="card-text">ID: @user.ID_Usuario</p>
-        </div>
-        <form action="@Url.Action("UsuarioProblema", "Home")" method="get">
-            <input type="hidden" name="UsuarioId" value="@user.ID_Usuario" />
-            <button type="submit" class="btn btn-primary" data-usuario-id="@user.ID_Usuario">Solucionar</button>
-        </form>
+        if(@user.Trabajador){
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Arreglar el problema de @user.Nombre</p>
+                    <p class="card-text">ID: @user.ID_Usuario</p>
+            </div>
+            <form action='@Url.Action("UsuarioProblema", "Home")' method="get">
+                <input type="hidden" name="UsuarioId" value="@user.ID_Usuario" />
+                @if(@ViewBag.Login != null){
+                    <button type="submit" class="btn btn-primary" data-usuario-id="@user.ID_Usuario">Solucionar</button>
+                }
+                else{
+                    <button type="submit" class="btn btn-primary" data-usuario-id="@user.ID_Usuario" disabled>Solucionar</button>
+                }
+            </form>
 
-        </div>   
+            </div>      
+        }
     }
 </div>
 

@@ -9,7 +9,7 @@ public class BD
     private static List<Valoraciones> _ListaValoraciones;
     private static List<Clientes> _ListaClientes;
 
-    private static string _connectionString = @"Server=DESKTOP-NLK60DB\SQLEXPRESS; DataBase=HOMEHELP;Trusted_Connection=True; ";
+    private static string _connectionString = @"Server=localhost; DataBase=HOMEHELP;Trusted_Connection=True; ";
     
     public static List<Usuarios> ObtenerUsuarios()
     {
