@@ -12,6 +12,8 @@ public class HomeController : Controller
     {
         _logger = logger;
         ViewBag.Trabajador = Utilities.Trabajador;
+        Console.WriteLine($"Valor de la cookie UserId: {ViewBag.user ?? "nulo"}");
+        
     }
 
     public IActionResult Index()
@@ -146,11 +148,14 @@ public class HomeController : Controller
 
     public IActionResult ContratarTrabajador(int TrabajadorId)
     {
-        ViewBag.UserBuscado = BD.ObtenerUsuarioPorID(TrabajadorId);
+        ViewBag.UserBuscado = BD.ObtenerUsuarioPorID(TrabajadorId); 
         return  View();
     }
 
-
+    public IActionResult Perfil()
+    {
+        return  View();
+    }
     public class FileController : Controller
 {
     private readonly string _uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");

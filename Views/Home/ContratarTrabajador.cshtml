@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmar Arreglo</title>
 </head>
-<body>
-    <a href='@Url.Action("Servicios")'>Atras</a>
-    <h1 class="text-center">Problema de @ViewBag.UserBuscado.Nombre</h1>
-    <div class="card-container">
-    </div> 
+<body> 
+  <a class = "atras" href='@Url.Action("Servicios")'>Atrás</a>
+    <div class = "container-contratar"> 
+   
+    <h1 class="text-center" class = "title">Contratar a  @ViewBag.UserBuscado.Nombre</h1>
     <div class="card text-center">
   
   <div class="card-body">
     <form action='@Url.Action("MarcarArreglado", "Home")' method="get">
-        <input type="hidden" name="TrabajadorId" value="@ViewBag.UserBuscado.ID_Usuario" />
+        <input type="hidden" name="TrabajadorId" value="@ViewBag.UserBuscado.ID_Usuario" /> 
+        <input type="hidden" name="TrabajadorId" value="@ViewBag.UserBuscado.ID_Usuario" /> 
+        <img src="~/img/FotoTrabajador.png">
         <button type="button" class="btn btn-primary" onclick="ConfirmarTrabajador(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Contratar</button>
     </form>
-    </div>
+    </div> 
+    </div> 
 </body>
 </html>

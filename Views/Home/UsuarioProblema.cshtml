@@ -7,18 +7,18 @@
 </head>
 <body> 
     <a href='@Url.Action("BrindarServicios")'>Atras</a>
-    <div class="card-container">
-  </div> 
-  <div class="card text-center">
+<div class = "container-contratar"> 
+  
   
   <div class="card-body">
-    <h5 class="card-title">Trabajador @ViewBag.UserBuscado.Nombre</h5>
+    <h5 class="card-title">Problema de  @ViewBag.UserBuscado.Nombre</h5>
      <form action='@Url.Action("MarcarArreglado", "Home")' method="get">
-        <input type="hidden" name="UsuarioId" value="@ViewBag.UserBuscado.ID_Usuario" />
+        <input type="hidden" name="UsuarioId" value="@ViewBag.UserBuscado.ID_Usuario" /> 
+        <img src = "~/img/cañeria_rota.jpg">
         <button type="button" class="btn btn-primary" onclick="ConfirmarArreglo(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Arreglar</button>
     </form> 
   </div>
 </div>
-</div>
+
 </body>
 </html>

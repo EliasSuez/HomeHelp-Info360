@@ -13,12 +13,10 @@
     {
          if(!@tra.Trabajador){
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="~/img/FotoTrabajador.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text"> @tra.Nombre</p> 
                     <p class="card-text"> Electricista </p>
-                    <p class="card-text">ID: @tra.ID_Usuario</p> 
-                    <img scr = "~/img/FotoTrabajador.png">
             </div>
             <form action='@Url.Action("ContratarTrabajador")' method="get">
                 <input type="hidden" name="TrabajadorId" value="@tra.ID_Usuario" />

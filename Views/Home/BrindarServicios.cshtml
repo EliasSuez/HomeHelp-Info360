@@ -14,8 +14,6 @@
                 <img src="~/img/FotoCliente.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">Arreglar el problema de @user.Nombre</p>
-                    <p class="card-text">ID: @user.ID_Usuario</p> 
-                    <img scr = "~/img/FotoCliente.png">
             </div>
             <form action='@Url.Action("UsuarioProblema", "Home")' method="get">
                 <input type="hidden" name="UsuarioId" value="@user.ID_Usuario" />
