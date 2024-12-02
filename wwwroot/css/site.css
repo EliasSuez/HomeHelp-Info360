@@ -1051,3 +1051,11 @@ input:-webkit-autofill:active {
   color: green;
   margin-top: 20px;
 }
+
+.card-container img 
+{
+  width: 100px ; 
+  height: auto; 
+  display: flex;
+  justify-content: center;
+}

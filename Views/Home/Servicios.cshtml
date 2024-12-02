@@ -17,7 +17,8 @@
                 <div class="card-body">
                     <p class="card-text"> @tra.Nombre</p> 
                     <p class="card-text"> Electricista </p>
-                    <p class="card-text">ID: @tra.ID_Usuario</p>
+                    <p class="card-text">ID: @tra.ID_Usuario</p> 
+                    <img scr = "~/img/FotoTrabajador.png">
             </div>
             <form action='@Url.Action("ContratarTrabajador")' method="get">
                 <input type="hidden" name="TrabajadorId" value="@tra.ID_Usuario" />
