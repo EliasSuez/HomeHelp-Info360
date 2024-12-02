@@ -6,12 +6,17 @@
     <title>Confirmar Arreglo</title>
 </head>
 <body>
-    
+    <a href='@Url.Action("Servicios")'>Atras</a>
     <h1 class="text-center">Problema de @ViewBag.UserBuscado.Nombre</h1>
-
+    <div class="card-container">
+    </div> 
+    <div class="card text-center">
+  
+  <div class="card-body">
     <form action='@Url.Action("MarcarArreglado", "Home")' method="get">
         <input type="hidden" name="TrabajadorId" value="@ViewBag.UserBuscado.ID_Usuario" />
-        <button type="button" onclick="ConfirmarTrabajador(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Contratar</button>
+        <button type="button" class="btn btn-primary" onclick="ConfirmarTrabajador(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Contratar</button>
     </form>
+    </div>
 </body>
 </html>

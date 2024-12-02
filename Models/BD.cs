@@ -131,7 +131,7 @@ public class BD
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "UPDATE Trabajador SET hora_dispo = 0 WHERE ID_User = @pID";
+            string sql = "UPDATE Trabajadores SET hora_dispo = 0 WHERE ID_User = @pID";
             db.Execute(sql, new { @pID = UsuarioId });
         }
     }

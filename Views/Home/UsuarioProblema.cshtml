@@ -15,7 +15,7 @@
     <h5 class="card-title">Trabajador @ViewBag.UserBuscado.Nombre</h5>
      <form action='@Url.Action("MarcarArreglado", "Home")' method="get">
         <input type="hidden" name="UsuarioId" value="@ViewBag.UserBuscado.ID_Usuario" />
-        <button type="button" onclick="ConfirmarArreglo(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Arreglar</button>
+        <button type="button" class="btn btn-primary" onclick="ConfirmarArreglo(@ViewBag.UserBuscado.ID_Usuario)" data-usuario-id="@ViewBag.UserBuscado.ID_Usuario">Arreglar</button>
     </form> 
   </div>
 </div>
