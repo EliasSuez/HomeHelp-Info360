@@ -191,3 +191,8 @@ function ConfirmarTrabajador(usuarioId) {
         });
     }
 }
+
+DesplegarPerfil = () =>{
+
+    
+}

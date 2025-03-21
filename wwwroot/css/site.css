@@ -390,10 +390,12 @@ main .contenedorPrincipal .Emergencia{
   background-color: #ddd;
 }
 
+
 .login-link {
   margin-top: 30px;
   font-size: 1rem;
   color: #666;
+  text-align: center;
 }
 
 .login-link a {
@@ -454,6 +456,8 @@ main .contenedorPrincipal .Emergencia{
   cursor: pointer;
   text-align: center;
 }
+
+
 
 .accept {
   background-color: rgb(34, 34, 34);
@@ -1084,4 +1088,23 @@ input:-webkit-autofill:active {
 .atras 
 {
   font-size: large; 
+}
+
+*{
+  border: 1px solid black;
+}
+.inputPerfil{
+  display: flex;
+  margin-left: 380px;
+  padding-bottom: 10px;
+  padding-right: 1000px;
+  margin-bottom: 20px;
+}
+
+.labelPerfil{
+  text-align: center; 
+}
+
+.botonPerfil{
+  margin-left: 840px;
 }
