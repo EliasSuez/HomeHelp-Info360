@@ -1,15 +1,24 @@
 <h1 style="text-align: center">Perfil</h1>
-<!-- <img src="~/img/FotoCliente.png" style="width: 200px; margin-left: 500px;"> -->
-<label for="Name" class="labelPerfil">Click me</label>
-<input type="text" class="inputPerfil">
-<label for="Name" class="labelPerfil">Click me</label>
-<input type="text" class="inputPerfil">
-<label for="Name" class="labelPerfil">Click me</label>
-<input type="text" class="inputPerfil">
-<label for="Name" class="labelPerfil">Click me</label>
-<input type="text" class="inputPerfil">
-<label for="Name" class="labelPerfil">Click me</label>
-<input type="text" class="inputPerfil">
-<button type="button" class="btn btn-primary btn-lg botonPerfil">Cargar informacion</button>
-<p class="login-link" ><a href='@Url.Action("LogOut")'>Deseas salir </a></p>
 
+<label class="labelPerfil">Nombre:</label>
+<input type="text" class="inputPerfil" id="name" disabled>
+
+<label class="labelPerfil">Apellido:</label>
+<input type="text" class="inputPerfil" id="lastname" disabled>
+
+<label class="labelPerfil">Email:</label>
+<input type="text" class="inputPerfil" id="email" disabled>
+
+<label class="labelPerfil">DNI:</label>
+<input type="text" class="inputPerfil" id="dni" disabled>
+
+<label class="labelPerfil">Fecha de nacimiento:</label>
+<input type="date" class="inputPerfil" id="birthdate" disabled>
+
+<input type="hidden" id="ID_Usuario" value="97">
+
+<button type="button" class="btn btn-primary btn-lg botonPerfil" id="editSaveBtn" onclick="toggleEdit()">Cargar información</button>
+
+<p class="login-link">
+    <a href='@Url.Action("LogOut")'>¿Deseas salir?</a>
+</p>

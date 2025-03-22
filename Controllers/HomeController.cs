@@ -15,7 +15,33 @@ public class HomeController : Controller
         Console.WriteLine($"Valor de la cookie UserId: {ViewBag.user ?? "nulo"}");
         
     }
+    public IActionResult Perfil()
+    {
+        
+        return View();
+    }
 
+    [HttpPost]
+    public IActionResult Modificar(int UsuarioId, int DNI, string Nombre, string Apellido, string Email, DateTime FechaNacimiento)
+    {
+        if (ModelState.IsValid)
+        {
+            Usuarios usuario = new Usuarios
+            {
+                ID_Usuario = UsuarioId,
+                DNI = DNI,
+                Nombre = Nombre,
+                Apellido = Apellido,
+                Email = Email,
+            };
+
+            BD.ModificarUsuario(usuario);
+
+            return Json(new { success = true });
+        }
+
+        return Json(new { success = false });
+    }
     public IActionResult Index()
     {
         ViewBag.user = Request.Cookies["UserId"];
@@ -152,10 +178,6 @@ public class HomeController : Controller
         return  View();
     }
 
-    public IActionResult Perfil()
-    {
-        return  View();
-    }
     public class FileController : Controller
 {
     private readonly string _uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");

@@ -12,10 +12,6 @@ function handleButtonClick() {
     }
 }
 
-// window.onload = function() {
-//     document.getElementById("welcomeModal").style.display = "flex";
-// };
-
 function performSearch() {
     const query = document.getElementById("searchInput").value;
     if (query) {
@@ -191,8 +187,100 @@ function ConfirmarTrabajador(usuarioId) {
         });
     }
 }
-
-DesplegarPerfil = () =>{
-
+function toggleEdit() {
+    // Obtener los campos de entrada
+    const inputs = document.querySelectorAll('.inputPerfil');
+    // Obtener el botón
+    const button = document.getElementById('editSaveBtn');
     
+    // Comprobar si los campos están habilitados o no
+    const isDisabled = inputs[0].disabled;
+    
+    if (!isDisabled) {
+        // Validar los datos antes de enviarlos
+        const isValid = validateForm();
+        
+        // Si la validación falla, detener la acción
+        if (!isValid) {
+            return;
+        }
+
+        // Deshabilitar los campos después de validación y cambiar el botón a "Cargar información"
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
+        button.textContent = 'Cargar información';
+
+        // Enviar los datos mediante AJAX después de la validación
+        submitData();
+    } else {
+        // Si los campos están deshabilitados (modo lectura), habilitarlos y cambiar el botón a "Guardar"
+        inputs.forEach(input => {
+            input.disabled = false;
+        });
+        button.textContent = 'Guardar';
+    }
+}
+
+function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const lastname = document.getElementById('lastname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const dni = document.getElementById('dni').value.trim();
+    const birthdate = document.getElementById('birthdate').value;
+
+    if (!name || !lastname || !email || !dni || !birthdate) {
+        alert('Todos los campos son obligatorios.');
+        return false;
+    }
+
+    // Validar el formato del email
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        alert('El formato del email es inválido.');
+        return false;
+    }
+
+    // Validar el DNI (debe ser un número de 8 dígitos)
+    const dniPattern = /^\d{8}$/;
+    if (!dniPattern.test(dni)) {
+        alert('El DNI debe ser un número de 8 dígitos.');
+        return false;
+    }
+
+    return true;
+}
+
+function submitData() {
+    const usuarioId = document.getElementById('ID_Usuario').value;
+    const dni = document.getElementById('dni').value.trim();
+    const nombre = document.getElementById('name').value.trim();
+    const apellido = document.getElementById('lastname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const fechaNacimiento = document.getElementById('birthdate').value;
+
+    $.ajax({
+        url: '/Home/Modificar',
+        method: 'POST',
+        data: {
+            UsuarioId: usuarioId,
+            DNI: dni,
+            Nombre: nombre,
+            Apellido: apellido,
+            Email: email,
+            FechaNacimiento: fechaNacimiento
+        },
+        success: function(response) {
+            if (response.success) {
+                alert("Los datos se han guardado correctamente.");
+            } else {
+                alert("Error: " + response.message);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", status, error);
+            console.error("Detalles:", xhr.responseText);
+            alert("Ocurrió un error al procesar la solicitud: " + error);
+        }
+    });
 }

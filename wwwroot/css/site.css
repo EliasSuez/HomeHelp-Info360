@@ -1090,9 +1090,9 @@ input:-webkit-autofill:active {
   font-size: large; 
 }
 
-*{
+/* *{
   border: 1px solid black;
-}
+} */
 .inputPerfil{
   display: flex;
   margin-left: 380px;

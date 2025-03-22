@@ -9,7 +9,7 @@ public class BD
     private static List<Valoraciones> _ListaValoraciones;
     private static List<Clientes> _ListaClientes;
 
-    private static string _connectionString = @"Server=localhost; DataBase=HOMEHELP;Trusted_Connection=True; ";
+    private static string _connectionString = @"Server=DESKTOP-NLK60DB\SQLEXPRESS; DataBase=HOMEHELP;Trusted_Connection=True; ";
     
     public static List<Usuarios> ObtenerUsuarios()
     {
@@ -39,6 +39,40 @@ public class BD
             return db.QueryFirstOrDefault<Usuarios>(sql, new { @pID = ID });
         }
     }
+
+    public static void ModificarUsuario(Usuarios user)
+    {
+        string SQL = @"
+            UPDATE Usuarios
+            SET 
+                DNI = @pDNI, 
+                Nombre = @pNombre, 
+                Apellido = @pApellido, 
+                Edad = @pEdad, 
+                ID_Valoracion = @pID_Valoracion, 
+                Trabajador = @pTrabajador, 
+                Email = @pEmail, 
+                Password = @pPassword, 
+                Foto = @pFoto
+            WHERE ID_Usuario = 97";
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(SQL, new
+            {
+                @pDNI = user.DNI,
+                @pNombre = user.Nombre,
+                @pApellido = user.Apellido,
+                @pEdad = user.Edad,
+                @pID_Valoracion = user.ID_Valoracion,
+                @pTrabajador = user.Trabajador,
+                @pEmail = user.Email,
+                @pPassword = user.Password,
+                @pFoto = user.Foto,
+            });
+        }
+    }
+
     public static List<Valoraciones> ObtenerValoraciones()
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
