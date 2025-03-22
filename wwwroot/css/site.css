@@ -957,7 +957,6 @@ input:-webkit-autofill:active {
   -webkit-transition-delay: 9999s;
 }
 
-/* Subir un problema */ 
 .textPubli
 {
   text-align: center;
@@ -1090,21 +1089,98 @@ input:-webkit-autofill:active {
   font-size: large; 
 }
 
-/* *{
-  border: 1px solid black;
-} */
-.inputPerfil{
-  display: flex;
-  margin-left: 380px;
-  padding-bottom: 10px;
-  padding-right: 1000px;
-  margin-bottom: 20px;
+.perfil-container {
+    max-width: 1000px;
+    margin-left: 550px;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.labelPerfil{
-  text-align: center; 
+.perfil-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px; 
 }
 
-.botonPerfil{
-  margin-left: 840px;
+
+.perfil-foto {
+    width: 30%; 
+    text-align: center;
 }
+
+.foto-perfil {
+    width: 100%; 
+    height: auto; 
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+
+
+.perfil-info {
+    
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+    margin-left: 30px;
+}
+
+.labelPerfil {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+    text-align: left;
+}
+
+.inputPerfil {
+    width: 100%;
+    padding: 12px; 
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    font-size: 18px; 
+    height: 50px; 
+}
+
+
+.botonPerfil {
+    display: block;
+    margin-top: 20px;
+    padding: 15px 30px; 
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px; 
+}
+
+.botonPerfil:hover {
+    background-color: #0056b3;
+}
+
+
+.login-link {
+    margin-top: 30px;
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+}
+
+.login-link a {
+    color: #007BFF;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: #0056b3;
+}
+

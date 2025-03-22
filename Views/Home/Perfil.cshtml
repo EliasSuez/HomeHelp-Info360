@@ -1,24 +1,36 @@
 <h1 style="text-align: center">Perfil</h1>
 
-<label class="labelPerfil">Nombre:</label>
-<input type="text" class="inputPerfil" id="name" disabled value="@ViewBag.Nombre">
+<div class="perfil-container">
+    
+    <div class="perfil-layout">
 
-<label class="labelPerfil">Apellido:</label>
-<input type="text" class="inputPerfil" id="lastname" disabled value="@ViewBag.Apellido">
+        <div class="perfil-foto">
+            <img src="~/img/FotoCliente.png" alt="Foto de perfil" class="foto-perfil" />
+        </div>
 
-<label class="labelPerfil">Email:</label>
-<input type="text" class="inputPerfil" id="email" disabled value="@ViewBag.Email">
+        <div class="perfil-info">
+            <label class="labelPerfil">Nombre:</label>
+            <input type="text" class="inputPerfil" id="name" disabled value="@ViewBag.Nombre">
 
-<label class="labelPerfil">DNI:</label>
-<input type="text" class="inputPerfil" id="dni" disabled value="@ViewBag.DNI">
+            <label class="labelPerfil">Apellido:</label>
+            <input type="text" class="inputPerfil" id="lastname" disabled value="@ViewBag.Apellido">
 
-<label class="labelPerfil">Fecha de nacimiento:</label>
-<input type="date" class="inputPerfil" id="birthdate" disabled>
+            <label class="labelPerfil">Email:</label>
+            <input type="text" class="inputPerfil" id="email" disabled value="@ViewBag.Email">
 
-<input type="hidden" id="ID_Usuario" value="97">
+            <label class="labelPerfil">DNI:</label>
+            <input type="text" class="inputPerfil" id="dni" disabled value="@ViewBag.DNI">
 
-<button type="button" class="btn btn-primary btn-lg botonPerfil" id="editSaveBtn" onclick="toggleEdit()">Cargar información</button>
+            <label class="labelPerfil">Fecha de nacimiento:</label>
+            <input type="date" class="inputPerfil" id="birthdate" disabled>
 
-<p class="login-link">
+            <input type="hidden" id="ID_Usuario" value="97">
+
+            <button type="button" class="btn btn-primary btn-lg botonPerfil" id="editSaveBtn" onclick="toggleEdit()">Cargar información</button>
+        </div>
+    </div>
+</div>
+
+<p class="login-link" style="text-align: center;">
     <a href='@Url.Action("LogOut")'>¿Deseas salir?</a>
 </p>

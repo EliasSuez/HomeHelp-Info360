@@ -188,33 +188,25 @@ function ConfirmarTrabajador(usuarioId) {
     }
 }
 function toggleEdit() {
-    // Obtener los campos de entrada
     const inputs = document.querySelectorAll('.inputPerfil');
-    // Obtener el botón
     const button = document.getElementById('editSaveBtn');
     
-    // Comprobar si los campos están habilitados o no
     const isDisabled = inputs[0].disabled;
     
     if (!isDisabled) {
-        // Validar los datos antes de enviarlos
         const isValid = validateForm();
         
-        // Si la validación falla, detener la acción
         if (!isValid) {
             return;
         }
 
-        // Deshabilitar los campos después de validación y cambiar el botón a "Cargar información"
         inputs.forEach(input => {
             input.disabled = true;
         });
         button.textContent = 'Cargar información';
 
-        // Enviar los datos mediante AJAX después de la validación
         submitData();
     } else {
-        // Si los campos están deshabilitados (modo lectura), habilitarlos y cambiar el botón a "Guardar"
         inputs.forEach(input => {
             input.disabled = false;
         });
@@ -234,14 +226,12 @@ function validateForm() {
         return false;
     }
 
-    // Validar el formato del email
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!emailPattern.test(email)) {
         alert('El formato del email es inválido.');
         return false;
     }
 
-    // Validar el DNI (debe ser un número de 8 dígitos)
     const dniPattern = /^\d{8}$/;
     if (!dniPattern.test(dni)) {
         alert('El DNI debe ser un número de 8 dígitos.');
