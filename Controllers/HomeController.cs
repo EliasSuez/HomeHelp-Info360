@@ -17,7 +17,13 @@ public class HomeController : Controller
     }
     public IActionResult Perfil()
     {
-        
+        Usuarios MostrarUser = BD.ObtenerUsuarioPorID(97);
+        ViewBag.Nombre = MostrarUser.Nombre;
+        ViewBag.Apellido = MostrarUser.Apellido;
+        ViewBag.Email = MostrarUser.Email;
+        ViewBag.DNI = MostrarUser.DNI;
+        ViewBag.Edad = MostrarUser.Edad;
+        ViewBag.ID_Valoracion = MostrarUser.ID_Valoracion;
         return View();
     }
 
