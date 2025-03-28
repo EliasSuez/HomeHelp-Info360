@@ -17,13 +17,14 @@ public class HomeController : Controller
     }
     public IActionResult Perfil()
     {
-        Usuarios MostrarUser = BD.ObtenerUsuarioPorID(97);
+        Usuarios MostrarUser = BD.ObtenerUsuarioPorID(71);
         ViewBag.Nombre = MostrarUser.Nombre;
         ViewBag.Apellido = MostrarUser.Apellido;
         ViewBag.Email = MostrarUser.Email;
         ViewBag.DNI = MostrarUser.DNI;
         ViewBag.Edad = MostrarUser.Edad;
         ViewBag.ID_Valoracion = MostrarUser.ID_Valoracion;
+        ViewBag.user = Request.Cookies["UserId"];
         return View();
     }
 
@@ -173,6 +174,7 @@ public class HomeController : Controller
     }
     public IActionResult Servicios()
     {
+        ViewBag.user = Request.Cookies["UserId"];
        ViewBag.Trabajadores = BD.ObtenerUsuarios(); 
        ViewBag.Login = Request.Cookies["UserId"]; 
         return View();
